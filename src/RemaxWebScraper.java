@@ -73,6 +73,9 @@ public class RemaxWebScraper {
 
                                 String price = property.findElement(By.cssSelector(".listing-card_price__lEBmo")).getText();
                                 String address = property.findElement(By.cssSelector(".listing-address_root__g9lT5")).getText();
+                                String[] addressParts = address.split(", ");
+                                String city = addressParts.length > 1 ? addressParts[addressParts.length - 2] : "";
+                                String province = addressParts.length > 1 ? addressParts[addressParts.length - 1] : "";
                                 WebElement detailsElement = property.findElement(By.cssSelector(".listing-card_detailsRow__t1YUs"));
                                 String beds = detailsElement.findElement(By.cssSelector("[data-cy='property-beds']")).getText();
                                 String baths = detailsElement.findElement(By.cssSelector("[data-cy='property-baths']")).getText();
