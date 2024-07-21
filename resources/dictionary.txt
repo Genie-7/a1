@@ -1,0 +1,138 @@
+Toronto
+Vancouver
+Montreal
+Calgary
+Edmonton
+Ottawa
+Winnipeg
+Halifax
+Victoria
+St. John's
+Regina
+Saskatoon
+Charlottetown
+Fredericton
+Whitehorse
+Iqaluit
+Yellowknife
+Richmond
+Brampton
+Hamilton
+Surrey
+Kitchener
+London
+Markham
+Burnaby
+Vaughan
+Windsor
+Oshawa
+Saint John
+Moncton
+Gatineau
+Longueuil
+Laval
+Sherbrooke
+Trois-Rivières
+Quebec City
+Saint-Hyacinthe
+LaSalle
+Drummondville
+Chicoutimi
+Saguenay
+Saint-Georges
+Saint-Eustache
+Saint-Jérôme
+Mirabel
+Repentigny
+Granby
+Rouyn-Noranda
+Val-d'Or
+Amos
+Mont-Tremblant
+La Pocatière
+Pincourt
+Rimouski
+Dollard-des-Ormeaux
+Mont-Laurier
+Gaspé
+Baie-Comeau
+Saint-Jean-sur-Richelieu
+Hinton
+Grande Prairie
+Fort McMurray
+Lethbridge
+Red Deer
+Camrose
+Medicine Hat
+Airdrie
+Okotoks
+Coaldale
+Vulcan
+Canmore
+Banff
+Edson
+Strathmore
+St. Albert
+Spruce Grove
+Beaumont
+Cold Lake
+Sylvan Lake
+Kananaskis
+Nanton
+Chestermere
+Carstairs
+Manning
+Lloydminster
+Wabasca
+Brandon
+Thompson
+Dauphin
+Portage la Prairie
+Selkirk
+Morden
+Winkler
+Gimli
+Steinbach
+La Broquerie
+The Pas
+Flin Flon
+Norway House
+Gods Lake Narrows
+Winnipegosis
+Birtle
+Shoal Lake
+Hamiota
+Killarney
+Russell
+Grandview
+Leaf Rapids
+Lakeshore
+Vita
+Riverton
+Richer
+Neepawa
+McCreary
+St. Pierre-Jolys
+Notre-Dame-de-Lourdes
+Clearmont
+Taché
+Bredenbury
+Moose Jaw
+Prince Albert
+Yorkton
+Estevan
+Swift Current
+Weyburn
+Melfort
+La Ronge
+North Battleford
+Battleford
+Kindersley
+Melville
+Carrot River
+Humphrey
+Rosthern
+Aberdeen
+Sturgis
+Langenburg
+Kamsack
