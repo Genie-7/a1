@@ -11,6 +11,8 @@ public class Main {
 
         SearchFrequencyTracker searchTracker = new SearchFrequencyTracker();
         SpellChecker spellChecker = new SpellChecker();
+        // Generate dictionary.txt from CSV
+        DictionaryGenerator.main(new String[]{"remax_listings.csv", "resources/dictionary.txt"});
 
         // Load dictionary.txt into spell checker
         spellChecker.loadDictionary(Arrays.asList("resources/dictionary.txt"));
@@ -25,13 +27,9 @@ public class Main {
         scanner.nextLine(); // Consume newline
 
         switch (choice) {
-            case 1:
-                try {
-                    scraper.scrape();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
+            /*case 1:
+                scraper.scrapeMultipleLocations();
+                break;*/
             case 2:
                 FrequencyCount.parseCSV("remax_listings.csv", cityWordCountMap, cityListingsMap, provinceWordCountMap, provinceListingsMap);
                 System.out.println("Enter the province name:");

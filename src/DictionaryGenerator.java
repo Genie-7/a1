@@ -27,8 +27,8 @@ public class DictionaryGenerator {
             while ((line = br.readLine()) != null) {
                 String[] columns = parseCSVLine(line);
                 if (columns.length > 3) { // Ensure there are enough columns
-                    addWordsToDictionary(columns[2], dictionary); // City name
-                    addWordsToDictionary(columns[3], dictionary); // Province name
+                    addEntryToDictionary(columns[2], dictionary); // City name
+                    addEntryToDictionary(columns[3], dictionary); // Province name
                 }
             }
         } catch (IOException e) {
@@ -73,12 +73,9 @@ public class DictionaryGenerator {
         return columns.toArray(new String[0]);
     }
 
-    private static void addWordsToDictionary(String text, Set<String> dictionary) {
-        String[] words = text.split("\\W+");
-        for (String word : words) {
-            if (!word.isEmpty()) {
-                dictionary.add(word.toLowerCase());
-            }
+    private static void addEntryToDictionary(String text, Set<String> dictionary) {
+        if (!text.isEmpty()) {
+            dictionary.add(text.toLowerCase());
         }
     }
 }

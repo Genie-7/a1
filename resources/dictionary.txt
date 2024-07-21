@@ -1,138 +1,538 @@
-Toronto
-Vancouver
-Montreal
-Calgary
-Edmonton
-Ottawa
-Winnipeg
-Halifax
-Victoria
-St. John's
-Regina
-Saskatoon
-Charlottetown
-Fredericton
-Whitehorse
-Iqaluit
-Yellowknife
-Richmond
-Brampton
-Hamilton
-Surrey
-Kitchener
-London
-Markham
-Burnaby
-Vaughan
-Windsor
-Oshawa
-Saint John
-Moncton
-Gatineau
-Longueuil
-Laval
-Sherbrooke
-Trois-Rivières
-Quebec City
-Saint-Hyacinthe
-LaSalle
-Drummondville
-Chicoutimi
-Saguenay
-Saint-Georges
-Saint-Eustache
-Saint-Jérôme
-Mirabel
-Repentigny
-Granby
-Rouyn-Noranda
-Val-d'Or
-Amos
-Mont-Tremblant
-La Pocatière
-Pincourt
-Rimouski
-Dollard-des-Ormeaux
-Mont-Laurier
-Gaspé
-Baie-Comeau
-Saint-Jean-sur-Richelieu
-Hinton
-Grande Prairie
-Fort McMurray
-Lethbridge
-Red Deer
-Camrose
-Medicine Hat
-Airdrie
-Okotoks
-Coaldale
-Vulcan
-Canmore
-Banff
-Edson
-Strathmore
-St. Albert
-Spruce Grove
-Beaumont
-Cold Lake
-Sylvan Lake
-Kananaskis
-Nanton
-Chestermere
-Carstairs
-Manning
-Lloydminster
-Wabasca
-Brandon
-Thompson
-Dauphin
-Portage la Prairie
-Selkirk
-Morden
-Winkler
-Gimli
-Steinbach
-La Broquerie
-The Pas
-Flin Flon
-Norway House
-Gods Lake Narrows
-Winnipegosis
-Birtle
-Shoal Lake
-Hamiota
-Killarney
-Russell
-Grandview
-Leaf Rapids
-Lakeshore
-Vita
-Riverton
-Richer
-Neepawa
-McCreary
-St. Pierre-Jolys
-Notre-Dame-de-Lourdes
-Clearmont
-Taché
-Bredenbury
-Moose Jaw
-Prince Albert
-Yorkton
-Estevan
-Swift Current
-Weyburn
-Melfort
-La Ronge
-North Battleford
-Battleford
-Kindersley
-Melville
-Carrot River
-Humphrey
-Rosthern
-Aberdeen
-Sturgis
-Langenburg
-Kamsack
+peachland
+east royalty
+lamont
+stoney creek
+east garafraxa
+view royal
+faro
+adjala tosorontio
+katepwa beach
+ab
+north kawartha
+hanmer
+sun peaks
+muenster
+nestor falls
+beaumont
+108 mile ranch
+chatham
+north bay
+toronto c10
+toronto c11
+avonmore
+toronto c13
+morinville
+toronto c14
+nairn centre
+toronto c15
+englehart
+portugal cove st. philips
+port coquitlam
+harry's harbour
+big shell
+bc
+powell river
+oliver paipoonge
+hillgrade
+halifax peninsula
+lethbridge
+eastern passage
+warren grove
+vancouver
+seal cove
+kenora
+temiskaming shores
+dawson creek
+gravenhurst
+kelowna
+kamloops
+estey's bridge
+headingley
+crow head
+remote areas
+langford
+barker's point
+val therese
+rural lac ste. anne county
+quinte west
+portugal cove st phillip's
+wakaw
+kitchener
+lakeshore
+hurkett
+blackfalds
+hague
+west st paul
+imperial
+clarington
+norman wells
+london
+rural rocky view county
+rural
+british columbia
+st. patrick's
+trail
+carlyle
+fenwick
+blue cove
+callander
+shippagan
+taylors brook
+hilton beach
+town of fogo island
+change islands
+brackley
+exner's twin bays
+chestermere
+fogo island( tilting)
+lasalle
+guelph
+rural vulcan county
+colwood
+noinville
+mattice val cote
+toronto e10
+flowers cove
+toronto e11
+slocan
+paradise
+vaughan
+coleman
+penticton
+county of
+turtle lake
+morson
+toronto c01
+toronto c02
+toronto c03
+toronto c04
+portage la prairie
+killarney road
+toronto c06
+toronto c07
+fogo island(shoal bay)
+barrie
+toronto c08
+aberdeen rm no. 373
+st. albert
+metchosin
+spanish
+windsor
+armdale
+penniac
+highlands
+happy valley / goose bay
+kagawong
+fort erie
+trent hills
+fogo island( joe batts arm)
+stewart crossing
+atikokan
+jacksons arm
+smith ennismore lakefield
+mine center
+rural wetaskiwin county
+outlook
+maugerville
+greater sudbury
+kawartha lakes
+manitoba
+toronto w10
+okotoks
+north end
+collingwood
+slocan park
+niagara on the lake
+dartmouth
+grande prairie
+winnipeg
+meadow lake rm no.588
+victoria
+searchmont
+moreton's harbour
+massey
+macklin
+labrador city
+toronto w01
+st. john’s
+toronto w03
+toronto w02
+rocky point
+toronto w05
+edson
+toronto w04
+brantford
+toronto w07
+oxdrift
+toronto w06
+toronto w09
+toronto w08
+niverville
+lively
+buena vista
+bayview
+oakville
+prince edward county
+kilbride
+teeswater
+150 mile house
+waldheim
+timmins
+north battleford
+denare beach
+herring neck
+rural lamont county
+ste rose du lac
+toronto e01
+toronto e02
+toronto e03
+bruce mines
+terrace
+camrose
+toronto e04
+longlac
+ladysmith
+toronto e06
+toronto e07
+ottawa
+toronto e08
+toronto e09
+ramara
+esterhazy
+bouctouche
+mutrie
+mattawan
+arcola
+mattawa
+algoma mills
+lumby
+strathmore
+espanola
+port alberni
+waterdown
+richibucto road
+lajord rm no. 128
+priddis greens
+drumheller
+noonan
+weyburn
+hamilton
+kirkland lake
+quesnel
+emma lake
+portugal cove st philips
+mb
+ingram
+langley
+stag harbour
+esquimalt
+brighton
+tecumseh
+prince albert
+squamish
+portland hills
+big river
+joe batt's
+hanwell
+pemberton
+nb
+norris point
+bracebridge
+orleans
+rural parkland county
+hanover
+beaver creek
+st. anthony
+christina lake
+chapleau
+rural willow creek no. 26
+nl
+courtenay
+eckville
+humboldt
+kindersley
+cornwall
+nashwaaksis
+ns
+nt
+crawford bay
+nanaimo
+shaunavon
+unity
+west kelowna
+matachewan
+redvers
+edenwold rm no. 158
+west end
+douglas
+orangeville
+st. patricks
+cumberland
+calgary
+on
+oyama
+summerland
+whitby
+moose jaw
+tappen
+cobden
+warman
+lakeside
+pe
+mount pearl
+st.johns
+sicamous
+fauxburg
+spryfield
+delta
+burlington
+north river
+kapuskasing
+mississauga
+burnaby
+newmarket
+ajax
+fogo island (deep bay)
+dunstaffnage
+kars township
+happy valley goose bay
+high river
+minaki
+long creek
+halifax
+rural wheatland county
+clayton park
+wetaskiwin
+oak lake
+st. johns
+eagle bay
+fogo island(deep bay)
+st,johns
+jemseg
+logy bay middle cove outer cove
+b say tah
+brooks
+joe batt's arm
+lorette
+lower saint marys
+edmonton
+haines junction
+mount herbert
+iroquois falls
+mission
+north west river
+conmee
+keremeos
+fogo island
+coniston
+canim lake
+crossfield
+manitouwadge
+toronto
+waterloo
+portugal cove st. philip's
+bonfield
+mermaid
+tisdale
+twillingate
+st clements
+fraser lake
+west vancouver
+sk
+island view
+yukon wide
+clayton rm no. 333
+nepean
+logy bay
+smooth rock falls
+fort liard
+grandview beach
+clive
+coppersands
+sault ste marie
+portugal cove
+duck lake rm no. 463
+lincoln
+middle arm
+savary island
+oliver
+prince rupert
+regina
+big white
+estevan
+carter's cove
+pictou
+little ward harbour
+oshawa
+spruce grove
+st. philip's
+marshfield
+lake country
+comox
+anchor point
+nanoose bay
+revelstoke
+cambridge
+campbell river
+fort mcmurray
+markham
+marathon
+dysart
+airdrie
+st john's
+red deer
+corman park rm no. 344
+dauphin
+m.d. of
+whitehorse
+pownal
+surrey
+saskatoon
+fogo island(barrd islands)
+fredericton
+cartier
+east st paul
+thunder bay
+roddickton bide arm
+medicine hat
+wanup
+williams lake
+batchawana
+capreol
+central elgin
+salmon arm
+rocky harbour
+wahnapitae
+douro dummer
+west royalty
+armstrong
+rural grande prairie no. 1
+richmond hill
+sudbury remote area
+rattling brook
+prince george
+schreiber
+garson
+longlaketon rm no. 219
+englee
+st.john's
+portugal cove st. phillips
+milton
+pelham
+fort frances
+innisfail
+king's point south
+new maryland
+cole harbour
+baie verte
+huntsville
+rockingham
+okanagan falls
+big river rm no. 555
+bladworth
+fogo island (joe batts arm)
+collingwood lakeshore estates
+golden
+olds
+yt
+oak bay
+torbay
+ingersoll
+wawa
+westbank
+st. phillips
+wabush
+peace river
+brampton
+horsefly
+sherwood park
+pike's arm
+elliot lake
+kings point
+fogo island(barr's islands)
+grande pointe
+mt. pearl
+sayward
+kingston
+meadowbank
+tiny
+bruno
+carnduff
+fogo
+anzac
+rural westlock county
+goose bay
+aurora
+beamsville
+purcell's cove
+st. charles
+fairview
+yellowknife
+levack
+osoyoos
+kakabeka falls
+port saunders
+sops arm
+st. john's
+nipigon
+whitefish
+earlton
+vernon
+thorold
+pilot butte
+skead
+carman
+rural brazeau county
+peterborough
+whistler
+nashwaak
+brandon
+sault ste. marie
+fort saskatchewan
+brooksby
+dryden
+cypress hills provincial park
+woodlawn
+king
+lloydminster
+merritt's harbour
+greenstone
+grandora
+deadmans cove
+cochrane
+prince albert rm no. 461
+willingdon
+miltonvale park
+deep bay
+alameda
+stratford
+sally's cove
+silverdale
+onaping
+charlottetown
+inkerman
+fort st. john
+kingsley
+welland
+qualicum beach
+martensville
+val caron
+saanich
+southern arm
+ghost lake
+candle lake
+mcleod hill
+saskatchewan
+rouleau
+fogo island(joe batts arm)
+gorham
+sudbury
+grenfell
+alert bay
+parkview
+bellevue
+canmore
+leduc
+hearst
+parkdale
+hazelbrook

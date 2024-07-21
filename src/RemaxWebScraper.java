@@ -344,12 +344,12 @@ public class RemaxWebScraper {
     }
 
     public void scrapeMultipleLocations() {
-        try (FileWriter csvWriter = new FileWriter(outputDir + "/all_locations_remax_listings.csv");
+        try (FileWriter csvWriter = new FileWriter(outputDir + "/remax_listings.csv");
              CSVPrinter printer = new CSVPrinter(csvWriter, CSVFormat.DEFAULT.withHeader("Price", "Address", "City", "Province", "Details", "URL", "Image File"))) {
             for (String location : locations) {
                 scrape(location, printer);
             }
-            logger.info("Data extraction complete. Check " + outputDir + "/all_locations_remax_listings.csv for results.");
+            logger.info("Data extraction complete. Check " + outputDir + "/remax_listings.csv for results.");
             logger.info("Total unique properties processed: " + globalProcessedAddresses.size());
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Failed to scrape data for locations", e);

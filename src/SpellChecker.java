@@ -93,12 +93,19 @@ public class SpellChecker {
     }
 
     public String checkSpelling(String input, Scanner scanner) {
+        if (dictionary.search(input.toLowerCase())) {
+            return input;
+        }
+
         List<String> suggestions = getSuggestions(input);
         while (true) {
             if (suggestions.isEmpty()) {
                 System.out.println("No close matches found.");
                 System.out.println("Please enter the correct word:");
                 input = scanner.nextLine().trim();
+                if (dictionary.search(input.toLowerCase())) {
+                    return input;
+                }
                 suggestions = getSuggestions(input);
             } else {
                 System.out.println("Did you mean (type the number corresponding to your choice):");
@@ -116,6 +123,9 @@ public class SpellChecker {
                     } else if (choice == suggestions.size() + 1) {
                         System.out.println("Please enter the correct word:");
                         input = scanner.nextLine().trim();
+                        if (dictionary.search(input.toLowerCase())) {
+                            return input;
+                        }
                         suggestions = getSuggestions(input);
                     } else {
                         System.out.println("Invalid choice. Please enter a number between 1 and " + (suggestions.size() + 1) + ".");
