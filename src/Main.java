@@ -2,14 +2,6 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Address: 152 Citadel Hills Green NW,");
-        System.out.println("City: Calgary");
-        System.out.println("Province: AB");
-        System.out.println("Details: 5 bed 4 bath");
-        System.out.println("URL: https://www.remax.ca/ab/calgary-real-estate/152-citadel-hills-green-nw-wp_idm73000008-a2151091-lst");
-        System.out.println();
-        System.out.println("Total listings shown: 1151");
-        System.out.println();
 
         RemaxWebScraper scraper = new RemaxWebScraper();
         Map<String, Integer> cityWordCountMap = new HashMap<>();
