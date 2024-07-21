@@ -2,6 +2,15 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Address: 152 Citadel Hills Green NW,");
+        System.out.println("City: Calgary");
+        System.out.println("Province: AB");
+        System.out.println("Details: 5 bed 4 bath");
+        System.out.println("URL: https://www.remax.ca/ab/calgary-real-estate/152-citadel-hills-green-nw-wp_idm73000008-a2151091-lst");
+        System.out.println();
+        System.out.println("Total listings shown: 1151");
+        System.out.println();
+
         RemaxWebScraper scraper = new RemaxWebScraper();
         Map<String, Integer> cityWordCountMap = new HashMap<>();
         Map<String, List<String[]>> cityListingsMap = new HashMap<>();
@@ -25,33 +34,15 @@ public class Main {
 
         while (true) {
             System.out.println("\033[1;34m=============================");
-            System.out.println("\033[1;32m");
-            System.out.println("    ~6_.___,`P_,`P_,`P_,`P                                     |");
-            System.out.println(" *  |___)  /^\\ /^\\ /^\\ /^\\      *         *   ,     *        \\   /");
-            System.out.println("    ='='=`    *                      *        )            --  *   --");
-            System.out.println("                   *           .-----------. ((              /   \\");
-            System.out.println("        *                *     )`'`'`'`'`'`( ||     *          |");
-            System.out.println("                              /`'`'`'`'`'`'`\\||                     *");
-            System.out.println("    *         *      *       /`'`'`'`'`'`'`'`\\| *        *");
-            System.out.println("                    ,,,,,,, /`'`'`'`'`'`'`'`'`'\\      ,");
-            System.out.println("       *           .-------.`|```````````````|`  .   )       *    *");
-            System.out.println("   *        *     / ,^, ,^, \\|  ,^^,   ,^^,  |  / \\ ((");
-            System.out.println("                 /  |_| |_|  \\  |__|   |__|  | /   \\||   *");
-            System.out.println("    *       *   /_____________\\ |  |   |  |  |/     \\|           *");
-            System.out.println("                 |  __   __  |  '=='   '=='  /.......\\     *");
-            System.out.println("  *     *        | (  ) (  ) |  //`_```_`\\\\  |,^, ,^,|     _    *");
-            System.out.println("   ___,.,___     | |--| |--| |  ||(O)|(O)||  ||_| |_||   _|-|_");
-            System.out.println("  (  ((''))  ) *  | |__| |__| |  || \" | \" ||  ||_| |_|| *  (\"')       *");
-            System.out.println("   \\_('@')_/     |           |  ||   |   ||  |       |  --(_)--  *");
-            System.out.println(" ***/_____\\******'==========='==''==='===''=='======='***(___)*****ldb");
-            System.out.println("\033[0m");
-            System.out.println("       Real Estate Scraper       ");
-            System.out.println("=============================\033[0m");
+            System.out.println("\033[1;32m       Real Estate Scraper       ");
+            System.out.println("\033[1;34m=============================\033[0m");
             System.out.println("\033[1;36mSelect an option:\033[0m");
             System.out.println("\033[1;33m1. Update CSV using web scraper");
             System.out.println("2. Search by province using existing CSV");
             System.out.println("3. Search by city using existing CSV");
-            System.out.println("4. Exit\033[0m");
+            System.out.println("4. Filter by price");
+            System.out.println("5. Clear console");
+            System.out.println("6. Exit\033[0m");
             System.out.println("\033[1;34m=============================\033[0m");
 
             int choice;
@@ -75,69 +66,32 @@ public class Main {
                     }
                     break;*/
                 case 2:
-                    searchByProvince(scanner, csvFilePath, spellChecker, searchTracker, provinceWordCountMap, provinceListingsMap);
+                    SearchByProvince.search(scanner, csvFilePath, spellChecker, searchTracker, provinceWordCountMap, provinceListingsMap);
                     break;
                 case 3:
-                    searchByCity(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
+                    SearchByCity.search(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
                     break;
                 case 4:
+                    FilterByPrice.filter(scanner, csvFilePath);
+                    break;
+                case 5:
+                    clearConsole();
+                    break;
+                case 6:
                     System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
                     scanner.close();
                     return; // Exit the program
                 default:
-                    System.out.println("\033[1;31mInvalid choice. Please enter 1, 2, 3, or 4.\033[0m");
+                    System.out.println("\033[1;31mInvalid choice. Please enter 1, 2, 3, 4, 5, or 6.\033[0m");
                     break;
             }
         }
     }
 
-    private static void searchByProvince(Scanner scanner, String csvFilePath, SpellChecker spellChecker,
-                                         SearchFrequencyTracker searchTracker, Map<String, Integer> provinceWordCountMap,
-                                         Map<String, List<String[]>> provinceListingsMap) {
-        FrequencyCount.parseCSV(csvFilePath, new HashMap<>(), new HashMap<>(), provinceWordCountMap, provinceListingsMap);
-        while (true) {
-            System.out.print("\033[1;36mEnter the province name (or type 'back' to return to the main menu, 'exit' to quit):\033[0m ");
-            String province = scanner.nextLine().trim();
-            if (province.equalsIgnoreCase("back")) {
-                return; // Go back to the main menu
-            }
-            if (province.equalsIgnoreCase("exit")) {
-                System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
-                System.exit(0);
-            }
-            String correctedProvince = spellChecker.checkSpelling(province, scanner);
-            if (correctedProvince.equalsIgnoreCase("None of the above")) {
-                return; // Go back to the main menu
-            }
-            int provinceFrequency = searchTracker.search(correctedProvince);
-            System.out.println("\033[1;32m" + correctedProvince + " has been searched: " + provinceFrequency + " times.\033[0m");
-            FrequencyCount.displayWordFrequency(provinceWordCountMap, correctedProvince);
-            FrequencyCount.displayListings(provinceListingsMap, correctedProvince);
-        }
-    }
-
-    private static void searchByCity(Scanner scanner, String csvFilePath, SpellChecker spellChecker,
-                                     SearchFrequencyTracker searchTracker, Map<String, Integer> cityWordCountMap,
-                                     Map<String, List<String[]>> cityListingsMap) {
-        FrequencyCount.parseCSV(csvFilePath, cityWordCountMap, cityListingsMap, new HashMap<>(), new HashMap<>());
-        while (true) {
-            System.out.print("\033[1;36mEnter the city name (or type 'back' to return to the main menu, 'exit' to quit):\033[0m ");
-            String city = scanner.nextLine().trim();
-            if (city.equalsIgnoreCase("back")) {
-                return; // Go back to the main menu
-            }
-            if (city.equalsIgnoreCase("exit")) {
-                System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
-                System.exit(0);
-            }
-            String correctedCity = spellChecker.checkSpelling(city, scanner);
-            if (correctedCity.equalsIgnoreCase("None of the above")) {
-                return; // Go back to the main menu
-            }
-            int cityFrequency = searchTracker.search(correctedCity);
-            System.out.println("\033[1;32m" + correctedCity + " has been searched: " + cityFrequency + " times.\033[0m");
-            FrequencyCount.displayWordFrequency(cityWordCountMap, correctedCity);
-            FrequencyCount.displayListings(cityListingsMap, correctedCity);
+    private static void clearConsole() {
+        // Print a large number of new lines to simulate clearing the console
+        for (int i = 0; i < 100; i++) {
+            System.out.println();
         }
     }
 }

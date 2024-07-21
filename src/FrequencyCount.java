@@ -28,6 +28,32 @@ public class FrequencyCount {
         }
     }
 
+    // Boyer-Moore substring search algorithm
+    public static int boyerMooreSearch(String pattern, String text) {
+        int n = text.length();
+        int m = pattern.length();
+        if (m == 0) return 0;
+
+        int[] right = new int[256];
+        Arrays.fill(right, -1);
+        for (int j = 0; j < m; j++) {
+            right[pattern.charAt(j)] = j;
+        }
+
+        int skip;
+        for (int i = 0; i <= n - m; i += skip) {
+            skip = 0;
+            for (int j = m - 1; j >= 0; j--) {
+                if (pattern.charAt(j) != text.charAt(i + j)) {
+                    skip = Math.max(1, j - right[text.charAt(i + j)]);
+                    break;
+                }
+            }
+            if (skip == 0) return i; // found
+        }
+        return -1; // not found
+    }
+
     // Method to parse a single CSV line
     private static String[] parseCSVLine(String line) {
         List<String> columns = new ArrayList<>();
@@ -78,9 +104,29 @@ public class FrequencyCount {
                 System.out.println("Province: " + columns[3]);
                 System.out.println("Details: " + columns[4]);
                 System.out.println("URL: " + columns[5]);
-                System.out.println("Image File: " + columns[6]);
                 System.out.println();
             }
         }
+    }
+
+    // Method to filter listings by price range using Boyer-Moore algorithm
+    public static List<String[]> filterByPrice(String filePath, double minPrice, double maxPrice) {
+        List<String[]> filteredListings = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            br.readLine(); // Skip the header line
+            while ((line = br.readLine()) != null) {
+                String[] columns = parseCSVLine(line);
+                if (columns.length >= 5) {
+                    double price = Double.parseDouble(columns[0].replaceAll("[$,]", ""));
+                    if (price >= minPrice && price <= maxPrice) {
+                        filteredListings.add(columns);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle IO exception
+        }
+        return filteredListings;
     }
 }
