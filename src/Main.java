@@ -25,7 +25,27 @@ public class Main {
 
         while (true) {
             System.out.println("\033[1;34m=============================");
-            System.out.println("   Welcome to Real Estate Scraper   ");
+            System.out.println("\033[1;32m");
+            System.out.println("    ~6_.___,`P_,`P_,`P_,`P                                     |");
+            System.out.println(" *  |___)  /^\\ /^\\ /^\\ /^\\      *         *   ,     *        \\   /");
+            System.out.println("    ='='=`    *                      *        )            --  *   --");
+            System.out.println("                   *           .-----------. ((              /   \\");
+            System.out.println("        *                *     )`'`'`'`'`'`( ||     *          |");
+            System.out.println("                              /`'`'`'`'`'`'`\\||                     *");
+            System.out.println("    *         *      *       /`'`'`'`'`'`'`'`\\| *        *");
+            System.out.println("                    ,,,,,,, /`'`'`'`'`'`'`'`'`'\\      ,");
+            System.out.println("       *           .-------.`|```````````````|`  .   )       *    *");
+            System.out.println("   *        *     / ,^, ,^, \\|  ,^^,   ,^^,  |  / \\ ((");
+            System.out.println("                 /  |_| |_|  \\  |__|   |__|  | /   \\||   *");
+            System.out.println("    *       *   /_____________\\ |  |   |  |  |/     \\|           *");
+            System.out.println("                 |  __   __  |  '=='   '=='  /.......\\     *");
+            System.out.println("  *     *        | (  ) (  ) |  //`_```_`\\\\  |,^, ,^,|     _    *");
+            System.out.println("   ___,.,___     | |--| |--| |  ||(O)|(O)||  ||_| |_||   _|-|_");
+            System.out.println("  (  ((''))  ) *  | |__| |__| |  || \" | \" ||  ||_| |_|| *  (\"')       *");
+            System.out.println("   \\_('@')_/     |           |  ||   |   ||  |       |  --(_)--  *");
+            System.out.println(" ***/_____\\******'==========='==''==='===''=='======='***(___)*****ldb");
+            System.out.println("\033[0m");
+            System.out.println("       Real Estate Scraper       ");
             System.out.println("=============================\033[0m");
             System.out.println("\033[1;36mSelect an option:\033[0m");
             System.out.println("\033[1;33m1. Update CSV using web scraper");
