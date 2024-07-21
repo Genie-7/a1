@@ -30,19 +30,18 @@ public class RemaxWebScraper {
             "Windsor", "Toronto", "Ottawa", "Victoria", "Edmonton", "Regina",
             "Winnipeg", "St. John", "Charlottetown", "Halifax", "Fredericton", "Calgary"
     };
-    private String outputDir = "location_listings";
+    // Remove the outputDir variable
     private static final int MAX_PAGES = 10;
     private static final int WAIT_TIMEOUT = 120;
     private static final int MAX_RETRIES = 10;
     private static final int RETRY_DELAY = 1000; // milliseconds
     private static final int PAGE_LOAD_WAIT = 5000; // milliseconds
 
-    // New: Global set to track processed addresses across all locations
     private Set<String> globalProcessedAddresses = new HashSet<>();
 
     public RemaxWebScraper() {
         setupLogger();
-        createOutputDirectory();
+        // Remove the createOutputDirectory() method call
     }
 
     private void setupLogger() {
@@ -54,13 +53,6 @@ public class RemaxWebScraper {
             logger.setLevel(Level.ALL);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    private void createOutputDirectory() {
-        File dir = new File(outputDir);
-        if (!dir.exists()) {
-            dir.mkdirs();
         }
     }
 
@@ -344,12 +336,12 @@ public class RemaxWebScraper {
     }
 
     public void scrapeMultipleLocations() {
-        try (FileWriter csvWriter = new FileWriter(outputDir + "/remax_listings.csv");
+        try (FileWriter csvWriter = new FileWriter("remax_listings.csv");
              CSVPrinter printer = new CSVPrinter(csvWriter, CSVFormat.DEFAULT.withHeader("Price", "Address", "City", "Province", "Details", "URL", "Image File"))) {
             for (String location : locations) {
                 scrape(location, printer);
             }
-            logger.info("Data extraction complete. Check " + outputDir + "/remax_listings.csv for results.");
+            logger.info("Data extraction complete. Check remax_listings.csv for results.");
             logger.info("Total unique properties processed: " + globalProcessedAddresses.size());
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Failed to scrape data for locations", e);
