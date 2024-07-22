@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
     private static final Map<String, String> provinceCodes = new HashMap<>();
     private static Autocomplete autocomplete = new Autocomplete();
+
     static {
         provinceCodes.put("ON", "Ontario");
         provinceCodes.put("QC", "Quebec");
@@ -73,9 +74,10 @@ public class Main {
             System.out.println("2. Search by province using existing CSV");
             System.out.println("3. Search by city using existing CSV");
             System.out.println("4. Search by budget using existing CSV");
-            System.out.println("5. Autocomplete City Suggestions");
-            System.out.println("6. Page Ranking Search");
-            System.out.println("7. Exit\033[0m");
+            System.out.println("5. Search by bedrooms and bathrooms using existing CSV");
+            System.out.println("6. Autocomplete City Suggestions");
+            System.out.println("7. Page Ranking Search");
+            System.out.println("8. Exit\033[0m");
             System.out.println("\033[1;34m=============================\033[0m");
 
             int choice;
@@ -108,9 +110,12 @@ public class Main {
                     FilterByPrice.filter(scanner, csvFilePath);
                     break;
                 case 5:
-                    handleCitySuggestions(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
+                    FilterByBedBath.filter(scanner, csvFilePath);
                     break;
                 case 6:
+                    handleCitySuggestions(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
+                    break;
+                case 7:
                     try {
                         handlePageRanking(scanner, csvFilePath);
                     } catch (Exception e) {
@@ -118,12 +123,12 @@ public class Main {
                         e.printStackTrace();
                     }
                     break;
-                case 7:
+                case 8:
                     System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
                     scanner.close();
                     return; // Exit the program
                 default:
-                    System.out.println("\033[1;31mInvalid choice. Please enter a number between 1 and 6.\033[0m");
+                    System.out.println("\033[1;31mInvalid choice. Please enter a number between 1 and 8.\033[0m");
                     break;
             }
         }
@@ -206,7 +211,7 @@ public class Main {
 
             System.out.println("Top suggestions:");
             int count = 1;
-            for (String suggestion : suggestions.subList(0, Math.min(suggestions.size(), 5))) {
+            for (String suggestion : suggestions.subList(0, Math.min(suggestions.size(), 5))) {  // Corrected here
                 System.out.println(count++ + ". " + suggestion.split(" \\(")[0]);  // Remove frequency and display only the city
             }
 
@@ -247,6 +252,7 @@ public class Main {
         }
     }
 
+
     private static void searchCityDirectly(String csvFilePath,
                                            SearchFrequencyTracker searchTracker, Map<String, Integer> cityWordCountMap,
                                            Map<String, List<String[]>> cityListingsMap, String city) {
@@ -267,3 +273,4 @@ public class Main {
         PageRanking_BM page_Rank = new PageRanking_BM(csvFilePath, search_Keywords);
         page_Rank.print_TopRankedProperties(10);
     }
+}
