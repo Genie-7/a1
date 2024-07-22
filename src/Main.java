@@ -168,10 +168,10 @@ public class Main {
         while (true) {
             System.out.print("\033[1;36mEnter the city name (or type 'back' to return to the main menu, 'exit' to quit):\033[0m ");
             String city = scanner.nextLine().trim();
-            if (city.equalsIgnoreCase("back")) {
+            if (city.matches("(?i)back")) {
                 return; // Go back to the main menu
             }
-            if (city.equalsIgnoreCase("exit")) {
+            if (city.matches("(?i)exit")) {
                 System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
                 System.exit(0);
             }
