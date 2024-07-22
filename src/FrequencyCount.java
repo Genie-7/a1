@@ -82,11 +82,11 @@ public class FrequencyCount {
     }
 
     // Method to display the frequency of a specific word
-    /*public static void displayWordFrequency(Map<String, Integer> wordCountMap, String word) {
+    public static void displayWordFrequency(Map<String, Integer> wordCountMap, String word) {
         word = word.toLowerCase();
         int count = wordCountMap.getOrDefault(word, 0);
         System.out.println("Frequency of '" + word + "': " + count);
-    }*/
+    }
 
     // Method to display the listings of a specific word
     public static void displayListings(Map<String, List<String[]>> listingsMap, String word) {

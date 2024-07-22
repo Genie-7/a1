@@ -1,9 +1,21 @@
-windsor: 33
+windsor: 54
+ab: 1
+bc: 1
+toronto: 12
+5000000.0-6000000.0: 1
+400000.0-500000.0: 9
+vernon: 1
+lasalle: 4
+quesnel: 1
+edmonton: 2
 mattawa: 1
+108 mile ranch: 1
 3: 1
 lassale: 2
-toronto: 6
-lasalle: 4
+winnipeg: 11
+400000.0-450000.0: 1
+4000000.0-5000000.0: 3
+500000.0-600000.0: 1
 lasallle: 1
-ottawa: 1
+ottawa: 2
 on: 1

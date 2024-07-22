@@ -290,4 +290,3 @@ public class Main {
         FrequencyCount.displayListings(cityListingsMap, city);
     }
 }
-
