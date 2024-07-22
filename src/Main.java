@@ -74,7 +74,8 @@ public class Main {
             System.out.println("3. Search by city using existing CSV");
             System.out.println("4. Search by budget using existing CSV");
             System.out.println("5. Autocomplete City Suggestions");
-            System.out.println("6. Exit\033[0m");
+            System.out.println("6. Page Ranking Search");
+            System.out.println("7. Exit\033[0m");
             System.out.println("\033[1;34m=============================\033[0m");
 
             int choice;
@@ -110,6 +111,14 @@ public class Main {
                     handleCitySuggestions(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
                     break;
                 case 6:
+                    try {
+                        handlePageRanking(scanner, csvFilePath);
+                    } catch (Exception e) {
+                        System.out.println("An error occurred during page ranking: " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                    break;
+                case 7:
                     System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
                     scanner.close();
                     return; // Exit the program
@@ -289,4 +298,14 @@ public class Main {
         FrequencyCount.displayWordFrequency(cityWordCountMap, city);
         FrequencyCount.displayListings(cityListingsMap, city);
     }
+
+    private static void handlePageRanking(Scanner scanner, String csvFilePath) {
+        System.out.println("Enter search keywords (space-separated): ");
+        String user_Input = scanner.nextLine(); // Read user input
+        String[] search_Keywords = user_Input.split("\\s+"); // Split the input into an array of keywords
+
+        PageRanking_BM page_Rank = new PageRanking_BM(csvFilePath, search_Keywords);
+        page_Rank.print_TopRankedProperties(10);
+    }
+
 }
