@@ -1,14 +1,46 @@
 import java.util.*;
+import java.io.*;
+import java.util.regex.*;
 
 public class FilterByPrice {
     public static void filter(Scanner scanner, String csvFilePath) {
-        System.out.print("\033[1;36mEnter minimum price:\033[0m ");
-        double minPrice = scanner.nextDouble();
-        System.out.print("\033[1;36mEnter maximum price:\033[0m ");
-        double maxPrice = scanner.nextDouble();
-        scanner.nextLine(); // Consume newline
+        double minPrice = 0;
+        double maxPrice = 0;
 
-        List<String[]> filteredListings = FrequencyCount.filterByPrice(csvFilePath, minPrice, maxPrice);
+        while (true) {
+            // Input validation for minimum price
+            while (true) {
+                System.out.print("\033[1;36mEnter minimum price:\033[0m ");
+                if (scanner.hasNextDouble()) {
+                    minPrice = scanner.nextDouble();
+                    break;
+                } else {
+                    System.out.println("\033[1;31mInvalid input. Please enter a valid number.\033[0m");
+                    scanner.next(); // Consume invalid input
+                }
+            }
+
+            // Input validation for maximum price
+            while (true) {
+                System.out.print("\033[1;36mEnter maximum price:\033[0m ");
+                if (scanner.hasNextDouble()) {
+                    maxPrice = scanner.nextDouble();
+                    break;
+                } else {
+                    System.out.println("\033[1;31mInvalid input. Please enter a valid number.\033[0m");
+                    scanner.next(); // Consume invalid input
+                }
+            }
+            scanner.nextLine(); // Consume newline
+
+            if (minPrice > maxPrice) {
+                System.out.println("\033[1;31mMinimum price cannot be greater than maximum price. Please try again.\033[0m");
+            } else {
+                break;
+            }
+        }
+
+        List<String[]> filteredListings = filterByPrice(csvFilePath, minPrice, maxPrice);
 
         System.out.println("Total listings shown: " + filteredListings.size());
         System.out.println("\033[1;32mFiltered listings:\033[0m");
@@ -22,5 +54,45 @@ public class FilterByPrice {
             System.out.println();
         }
     }
-}
 
+    // Method to filter listings by price range
+    private static List<String[]> filterByPrice(String csvFilePath, double minPrice, double maxPrice) {
+        List<String[]> filteredListings = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+            String line;
+            br.readLine(); // Skip the header line
+            while ((line = br.readLine()) != null) {
+                String[] columns = parseCSVLine(line);
+                if (columns.length >= 6) {
+                    try {
+                        // Clean and parse the price
+                        String cleanedPrice = columns[0].replaceAll("[^\\d.]", "");
+                        double price = Double.parseDouble(cleanedPrice);
+                        if (price >= minPrice && price <= maxPrice) {
+                            filteredListings.add(columns);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("\033[1;31mSkipping invalid price format: " + columns[0] + "\033[0m");
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filteredListings;
+    }
+
+    // Method to parse a CSV line considering quoted fields with commas
+    private static String[] parseCSVLine(String line) {
+        List<String> columns = new ArrayList<>();
+        Matcher matcher = Pattern.compile("([^,\"]+|\"[^\"]*\")*").matcher(line);
+        while (matcher.find()) {
+            String column = matcher.group().trim();
+            if (column.startsWith("\"") && column.endsWith("\"")) {
+                column = column.substring(1, column.length() - 1);
+            }
+            columns.add(column);
+        }
+        return columns.toArray(new String[0]);
+    }
+}
