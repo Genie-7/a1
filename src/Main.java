@@ -104,7 +104,7 @@ public class Main {
                     searchByCity(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
                     break;
                 case 4:
-                    searchByBudget(scanner, csvFilePath);
+                    FilterByPrice.filter(scanner, csvFilePath);
                     break;
                 case 5:
                     handleCitySuggestions(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
@@ -170,46 +170,6 @@ public class Main {
             FrequencyCount.displayWordFrequency(cityWordCountMap, correctedCity);
             FrequencyCount.displayListings(cityListingsMap, correctedCity);
         }
-    }
-
-    private static void searchByBudget(Scanner scanner, String csvFilePath) {
-        int minBudget = -1;
-        int maxBudget = -1;
-
-        while (minBudget < 0) {
-            System.out.print("\033[1;36mEnter the minimum budget price:\033[0m ");
-            String minBudgetStr = scanner.nextLine().trim();
-            try {
-                minBudget = parsePrice(minBudgetStr);
-            } catch (NumberFormatException e) {
-                System.out.println("\033[1;31mInvalid budget input. Please enter a valid numeric value for the minimum budget.\033[0m");
-            }
-        }
-
-        while (maxBudget < 0) {
-            System.out.print("\033[1;36mEnter the maximum budget price:\033[0m ");
-            String maxBudgetStr = scanner.nextLine().trim();
-            try {
-                maxBudget = parsePrice(maxBudgetStr);
-            } catch (NumberFormatException e) {
-                System.out.println("\033[1;31mInvalid budget input. Please enter a valid numeric value for the maximum budget.\033[0m");
-            }
-        }
-
-        if (minBudget > maxBudget) {
-            System.out.println("\033[1;31mMinimum budget cannot be greater than maximum budget. Please try again.\033[0m");
-            return;
-        }
-
-        List<String[]> filteredListings = FrequencyCount.filterListingsByBudget(csvFilePath, minBudget, maxBudget);
-        FrequencyCount.displayListings(filteredListings);
-    }
-
-    private static int parsePrice(String priceStr) throws NumberFormatException {
-        if (!priceStr.matches("\\d+")) {
-            throw new NumberFormatException("Invalid price format");
-        }
-        return Integer.parseInt(priceStr);
     }
 
     private static void displayProvinceCodes() {

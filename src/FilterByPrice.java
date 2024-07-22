@@ -10,10 +10,14 @@ public class FilterByPrice {
         while (true) {
             // Input validation for minimum price
             while (true) {
-                System.out.print("\033[1;36mEnter minimum price:\033[0m ");
+                System.out.print("\033[1;36mEnter minimum price :\033[0m ");
                 if (scanner.hasNextDouble()) {
                     minPrice = scanner.nextDouble();
-                    break;
+                    if (minPrice >= 0) {
+                        break;
+                    } else {
+                        System.out.println("\033[1;31mInvalid input. Price cannot be negative.\033[0m");
+                    }
                 } else {
                     System.out.println("\033[1;31mInvalid input. Please enter a valid number.\033[0m");
                     scanner.next(); // Consume invalid input
@@ -22,10 +26,14 @@ public class FilterByPrice {
 
             // Input validation for maximum price
             while (true) {
-                System.out.print("\033[1;36mEnter maximum price:\033[0m ");
+                System.out.print("\033[1;36mEnter maximum price :\033[0m ");
                 if (scanner.hasNextDouble()) {
                     maxPrice = scanner.nextDouble();
-                    break;
+                    if (maxPrice >= 0) {
+                        break;
+                    } else {
+                        System.out.println("\033[1;31mInvalid input. Price cannot be negative.\033[0m");
+                    }
                 } else {
                     System.out.println("\033[1;31mInvalid input. Please enter a valid number.\033[0m");
                     scanner.next(); // Consume invalid input
@@ -85,14 +93,26 @@ public class FilterByPrice {
     // Method to parse a CSV line considering quoted fields with commas
     private static String[] parseCSVLine(String line) {
         List<String> columns = new ArrayList<>();
-        Matcher matcher = Pattern.compile("([^,\"]+|\"[^\"]*\")*").matcher(line);
-        while (matcher.find()) {
-            String column = matcher.group().trim();
-            if (column.startsWith("\"") && column.endsWith("\"")) {
-                column = column.substring(1, column.length() - 1);
+        boolean inQuotes = false;
+        StringBuilder sb = new StringBuilder();
+        for (char c : line.toCharArray()) {
+            switch (c) {
+                case '"':
+                    inQuotes = !inQuotes;
+                    break;
+                case ',':
+                    if (inQuotes) {
+                        sb.append(c);
+                    } else {
+                        columns.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    break;
+                default:
+                    sb.append(c);
             }
-            columns.add(column);
         }
+        columns.add(sb.toString()); // Add the last column
         return columns.toArray(new String[0]);
     }
 }
