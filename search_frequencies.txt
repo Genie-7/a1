@@ -1,11 +1,11 @@
-windsor: 54
+windsor: 60
 ab: 1
-bc: 1
-toronto: 12
+bc: 2
+toronto: 15
 5000000.0-6000000.0: 1
 400000.0-500000.0: 9
 vernon: 1
-lasalle: 4
+lasalle: 5
 quesnel: 1
 edmonton: 2
 mattawa: 1

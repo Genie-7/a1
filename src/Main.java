@@ -75,7 +75,7 @@ public class Main {
             System.out.println("4. Search by budget using existing CSV");
             System.out.println("5. Autocomplete City Suggestions");
             System.out.println("6. Exit\033[0m");
-            System.out.println("\033[1;34m=============================\033[0m");
+            System.out.println("\033[1;34m=============================\33[0m");
 
             int choice;
             try {
@@ -114,7 +114,7 @@ public class Main {
                     scanner.close();
                     return; // Exit the program
                 default:
-                    System.out.println("\033[1;31mInvalid choice. Please enter a number between 1 and 5.\033[0m");
+                    System.out.println("\033[1;31mInvalid choice. Please enter a number between 1 and 6.\033[0m");
                     break;
             }
         }
@@ -143,7 +143,7 @@ public class Main {
             int provinceFrequency = searchTracker.search(provinceCode);
             System.out.println("\033[1;32m" + provinceCodes.get(provinceCode) + " (" + provinceCode + ") has been searched: " + provinceFrequency + " times.\033[0m");
             FrequencyCount.displayWordFrequency(provinceWordCountMap, provinceCode);
-            FrequencyCount.displayListings(provinceListingsMap, provinceCode);
+            FrequencyCount.searchListings(provinceListingsMap, provinceCode);
         }
     }
 
@@ -168,7 +168,7 @@ public class Main {
             int cityFrequency = searchTracker.search(correctedCity);
             System.out.println("\033[1;32m" + correctedCity + " has been searched: " + cityFrequency + " times.\033[0m");
             FrequencyCount.displayWordFrequency(cityWordCountMap, correctedCity);
-            FrequencyCount.displayListings(cityListingsMap, correctedCity);
+            FrequencyCount.searchListings(cityListingsMap, correctedCity);
         }
     }
 
@@ -247,6 +247,6 @@ public class Main {
         int cityFrequency = searchTracker.search(city);
         System.out.println("\033[1;32m" + city + " has been searched: " + cityFrequency + " times.\033[0m");
         FrequencyCount.displayWordFrequency(cityWordCountMap, city);
-        FrequencyCount.displayListings(cityListingsMap, city);
+        FrequencyCount.searchListings(cityListingsMap, city);
     }
 }
