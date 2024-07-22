@@ -104,29 +104,55 @@ public class FrequencyCount {
                 System.out.println("Province: " + columns[3]);
                 System.out.println("Details: " + columns[4]);
                 System.out.println("URL: " + columns[5]);
+                System.out.println("Image File: " + columns[6]);
                 System.out.println();
             }
         }
     }
 
-    // Method to filter listings by price range using Boyer-Moore algorithm
-    public static List<String[]> filterByPrice(String filePath, double minPrice, double maxPrice) {
+    // Method to filter listings by budget
+    public static List<String[]> filterListingsByBudget(String filePath, int minBudget, int maxBudget) {
         List<String[]> filteredListings = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             br.readLine(); // Skip the header line
             while ((line = br.readLine()) != null) {
                 String[] columns = parseCSVLine(line);
-                if (columns.length >= 5) {
-                    double price = Double.parseDouble(columns[0].replaceAll("[$,]", ""));
-                    if (price >= minPrice && price <= maxPrice) {
+                if (columns.length >= 1) {
+                    int price = parsePrice(columns[0].trim());
+                    if (price >= minBudget && price <= maxBudget) {
                         filteredListings.add(columns);
                     }
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Handle IO exception
+            System.out.println("\033[1;31mError reading CSV file: " + e.getMessage() + "\033[0m");
         }
         return filteredListings;
+    }
+
+    // Method to display the filtered listings
+    public static void displayListings(List<String[]> listings) {
+        if (listings.isEmpty()) {
+            System.out.println("\033[1;31mNo listings found in the specified budget range.\033[0m");
+        } else {
+            System.out.println("\033[1;32mListings in the specified budget range:\033[0m");
+            for (String[] listing : listings) {
+                System.out.println("Price: " + listing[0]);
+                System.out.println("Address: " + listing[1]);
+                System.out.println("City: " + listing[2]);
+                System.out.println("Province: " + listing[3]);
+                System.out.println("Details: " + listing[4]);
+                System.out.println("URL: " + listing[5]);
+                System.out.println("Image File: " + listing[6]);
+                System.out.println();
+            }
+        }
+    }
+
+    // Method to parse a price string
+    private static int parsePrice(String priceStr) throws NumberFormatException {
+        String numericValue = priceStr.replaceAll("[^\\d]", "");
+        return Integer.parseInt(numericValue);
     }
 }

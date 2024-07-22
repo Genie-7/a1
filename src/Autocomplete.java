@@ -1,5 +1,7 @@
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import com.opencsv.exceptions.CsvValidationException;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -132,30 +134,18 @@ class Autocomplete {
 
     public void buildVocabularyFromRemaxFile(String filePath) {
         try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
-            List<String[]> records = reader.readAll();
+            String[] nextLine;
             boolean isHeader = true;
-            for (String[] record : records) {
+            while ((nextLine = reader.readNext()) != null) {
                 if (isHeader) {
                     isHeader = false;
                     continue;
                 }
-
-                if (record.length > 2) {
-                    String address = record[1];
-                    String details = record[2];
-
-                    String combined = address + " " + details;
-
-                    String[] words = combined.split("\\W+");
-                    for (String word : words) {
-                        if (!word.isEmpty() && word.matches("[a-zA-Z]+")) {
-                            avlTree.insert(word.toLowerCase());
-                        }
-                    }
-                }
+                String city = nextLine[2]; // Assuming city names are in the second column
+                avlTree.insert(city.toLowerCase());
             }
-        } catch (IOException | CsvException e) {
-            e.printStackTrace();
+        } catch (IOException | CsvValidationException e) {
+            System.out.println("Error reading CSV file: " + e.getMessage());
         }
     }
 
