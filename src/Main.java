@@ -20,7 +20,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //RemaxWebScraper scraper = new RemaxWebScraper();
+
+        RemaxWebScraper scraper = new RemaxWebScraper();
         Map<String, Integer> cityWordCountMap = new HashMap<>();
         Map<String, List<String[]>> cityListingsMap = new HashMap<>();
         Map<String, Integer> provinceWordCountMap = new HashMap<>();
@@ -288,5 +289,4 @@ public class Main {
         FrequencyCount.displayListings(cityListingsMap, city);
     }
 }
- 
- 
+
