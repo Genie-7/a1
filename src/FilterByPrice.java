@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.regex.*;
 
 public class FilterByPrice {
-    public static void filter(Scanner scanner, String csvFilePath) {
+    public static void filter(Scanner scanner, String csvFilePath, String selectedCityOrProvince) {
         double minPrice = 0;
         double maxPrice = 0;
 
@@ -48,7 +48,7 @@ public class FilterByPrice {
             }
         }
 
-        List<String[]> filteredListings = filterByPrice(csvFilePath, minPrice, maxPrice);
+        List<String[]> filteredListings = filterByPrice(csvFilePath, minPrice, maxPrice, selectedCityOrProvince);
 
         System.out.println("Total listings shown: " + filteredListings.size());
         System.out.println("\033[1;32mFiltered listings:\033[0m");
@@ -59,12 +59,15 @@ public class FilterByPrice {
             System.out.println("Province: " + listing[3]);
             System.out.println("Details: " + listing[4]);
             System.out.println("URL: " + listing[5]);
+            if (listing.length > 6) {
+                System.out.println("Image File: " + listing[6]);
+            }
             System.out.println();
         }
     }
 
-    // Method to filter listings by price range
-    private static List<String[]> filterByPrice(String csvFilePath, double minPrice, double maxPrice) {
+    // Method to filter listings by price range and city or province
+    private static List<String[]> filterByPrice(String csvFilePath, double minPrice, double maxPrice, String selectedCityOrProvince) {
         List<String[]> filteredListings = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
             String line;
@@ -77,7 +80,12 @@ public class FilterByPrice {
                         String cleanedPrice = columns[0].replaceAll("[^\\d.]", "");
                         double price = Double.parseDouble(cleanedPrice);
                         if (price >= minPrice && price <= maxPrice) {
-                            filteredListings.add(columns);
+                            // Check if the listing matches the selected city or province
+                            if (selectedCityOrProvince == null || selectedCityOrProvince.isEmpty() ||
+                                    selectedCityOrProvince.equalsIgnoreCase(columns[2].trim()) ||
+                                    selectedCityOrProvince.equalsIgnoreCase(columns[3].trim())) {
+                                filteredListings.add(columns);
+                            }
                         }
                     } catch (NumberFormatException e) {
                         System.out.println("\033[1;31mSkipping invalid price format: " + columns[0] + "\033[0m");

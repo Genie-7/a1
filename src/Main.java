@@ -22,7 +22,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         RemaxWebScraper scraper = new RemaxWebScraper();
         Map<String, Integer> cityWordCountMap = new HashMap<>();
         Map<String, List<String[]>> cityListingsMap = new HashMap<>();
@@ -45,41 +44,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
-            System.out.println("\033[1;34m=============================");
-            System.out.println("\033[1;32m");
-            System.out.println("    ~6_.___,P_,P_,P_,P                                     |");
-            System.out.println(" *  |___)  /^\\ /^\\ /^\\ /^\\      *         *   ,     *        \\   /");
-            System.out.println("    ='='=    *                      *        )            --  *   --");
-            System.out.println("                   *           .-----------. ((              /   \\");
-            System.out.println("        *                *     )'''''( ||     *          |");
-            System.out.println("                              /''''''\\||                     *");
-            System.out.println("    *         *      *       /'''''''\\| *        *");
-            System.out.println("                    ,,,,,,, /'''''''''\\      ,");
-            System.out.println("       *           .-------.|");
-            System.out.println("   *        *     / ,^, ,^, \\|  ,^^,   ,^^,  |  / \\ ((");
-            System.out.println("                 /  |_| |_|  \\  |__|   |__|  | /   \\||   *");
-            System.out.println("    *       *   /_____________\\ |  |   |  |  |/     \\|           *");
-            System.out.println("                 |  __   __  |  '=='   '=='  /.......\\     *");
-            System.out.println("  *     *        | (  ) (  ) |  //__\\\\  |,^, ,^,|     _    *");
-            System.out.println("   ___,.,___     | |--| |--| |  ||(O)|(O)||  ||_| |_||   _|-|_");
-            System.out.println("  (  ((''))  ) *  | |__| |__| |  || \" | \" ||  ||_| |_|| *  (\"')       *");
-            System.out.println("   \\_('@')_/     |           |  ||   |   ||  |       |  --(_)--  *");
-            System.out.println(" ***/_____\\******'==========='==''==='===''=='======='***(___)*****ldb");
-            System.out.println("\033[0m");
-            System.out.println("       Real Estate Scraper       ");
-            System.out.println("=============================\033[0m");
-            System.out.println("\033[1;36mSelect an option:\033[0m");
-            System.out.println("\033[1;33m1. Update CSV using web scraper");
-            System.out.println("2. Search by province using existing CSV");
-            System.out.println("3. Search by city using existing CSV");
-            System.out.println("4. Search by budget using existing CSV");
-            System.out.println("5. Search by bedrooms and bathrooms using existing CSV");
-            System.out.println("6. Autocomplete City Suggestions");
-            System.out.println("7. Page Ranking Search");
-            System.out.println("8. Exit\033[0m");
-            System.out.println("\033[1;34m=============================\033[0m");
+        // Print the welcome message once
+        printWelcomeMessage();
 
+        while (true) {
+            printMenu();
             int choice;
             try {
                 choice = scanner.nextInt();
@@ -107,7 +76,7 @@ public class Main {
                     searchByCity(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
                     break;
                 case 4:
-                    FilterByPrice.filter(scanner, csvFilePath);
+                    FilterByPrice.filter(scanner, csvFilePath, "");
                     break;
                 case 5:
                     FilterByBedBath.filter(scanner, csvFilePath);
@@ -134,6 +103,45 @@ public class Main {
         }
     }
 
+    private static void printWelcomeMessage() {
+        System.out.println("\033[1;34m=============================");
+        System.out.println("\033[1;32m");
+        System.out.println("    ~6_.___,P_,P_,P_,P                                     |");
+        System.out.println(" *  |___)  /^\\ /^\\ /^\\ /^\\      *         *   ,     *        \\   /");
+        System.out.println("    ='='=    *                      *        )            --  *   --");
+        System.out.println("                   *           .-----------. ((              /   \\");
+        System.out.println("        *                *     )'''''( ||     *          |");
+        System.out.println("                              /''''''\\||                     *");
+        System.out.println("    *         *      *       /'''''''\\| *        *");
+        System.out.println("                    ,,,,,,, /'''''''''\\      ,");
+        System.out.println("       *           .-------.|");
+        System.out.println("   *        *     / ,^, ,^, \\|  ,^^,   ,^^,  |  / \\ ((");
+        System.out.println("                 /  |_| |_|  \\  |__|   |__|  | /   \\||   *");
+        System.out.println("    *       *   /_____________\\ |  |   |  |  |/     \\|           *");
+        System.out.println("                 |  __   __  |  '=='   '=='  /.......\\     *");
+        System.out.println("  *     *        | (  ) (  ) |  //__\\\\  |,^, ,^,|     _    *");
+        System.out.println("   ___,.,___     | |--| |--| |  ||(O)|(O)||  ||_| |_||   _|-|_");
+        System.out.println("  (  ((''))  ) *  | |__| |__| |  || \" | \" ||  ||_| |_|| *  (\"')       *");
+        System.out.println("   \\_('@')_/     |           |  ||   |   ||  |       |  --(_)--  *");
+        System.out.println(" ***/_____\\******'==========='==''==='===''=='======='***(___)*****ldb");
+        System.out.println("\033[0m");
+        System.out.println("       Real Estate Scraper       ");
+        System.out.println("=============================\033[0m");
+    }
+
+    private static void printMenu() {
+        System.out.println("\033[1;36mSelect an option:\033[0m");
+        System.out.println("\033[1;33m1. Update CSV using web scraper");
+        System.out.println("2. Search by province using existing CSV");
+        System.out.println("3. Search by city using existing CSV");
+        System.out.println("4. Search by budget using existing CSV");
+        System.out.println("5. Search by bedrooms and bathrooms using existing CSV");
+        System.out.println("6. Autocomplete City Suggestions");
+        System.out.println("7. Page Ranking Search");
+        System.out.println("8. Exit\033[0m");
+        System.out.println("\033[1;34m=============================\033[0m");
+    }
+
     private static void searchByProvince(Scanner scanner, String csvFilePath, SpellChecker spellChecker,
                                          SearchFrequencyTracker searchTracker, Map<String, Integer> provinceWordCountMap,
                                          Map<String, List<String[]>> provinceListingsMap) {
@@ -157,9 +165,35 @@ public class Main {
             int provinceFrequency = searchTracker.search(provinceCode);
             System.out.println("\033[1;32m" + provinceCodes.get(provinceCode) + " (" + provinceCode + ") has been searched: " + provinceFrequency + " times.\033[0m");
             FrequencyCount.displayWordFrequency(provinceWordCountMap, provinceCode);
-            FrequencyCount.searchListings(provinceListingsMap, provinceCode);
+
+            // Display search results for the province
+            List<String[]> listings = provinceListingsMap.get(provinceCode.toLowerCase()); // Ensure case insensitivity
+            if (listings != null && !listings.isEmpty()) {
+                for (String[] listing : listings) {
+                    System.out.println("Price: " + listing[0]);
+                    System.out.println("Address: " + listing[1]);
+                    System.out.println("City: " + listing[2]);
+                    System.out.println("Province: " + listing[3]);
+                    System.out.println("Details: " + listing[4]);
+                    System.out.println("URL: " + listing[5]);
+                    if (listing.length > 6) {
+                        System.out.println("Image File: " + listing[6]);
+                    }
+                    System.out.println();
+                }
+            } else {
+                System.out.println("No listings found for province: " + provinceCodes.get(provinceCode));
+            }
+
+            // Ask if user wants to apply the budget filter
+            System.out.print("\033[1;36mDo you want to apply a budget filter? (yes/no):\033[0m ");
+            String applyFilter = scanner.nextLine().trim().toLowerCase();
+            if (applyFilter.equals("yes")) {
+                FilterByPrice.filter(scanner, csvFilePath, provinceCode); // Pass the province code
+            }
         }
     }
+
 
     private static void searchByCity(Scanner scanner, String csvFilePath, SpellChecker spellChecker,
                                      SearchFrequencyTracker searchTracker, Map<String, Integer> cityWordCountMap,
@@ -182,9 +216,35 @@ public class Main {
             int cityFrequency = searchTracker.search(correctedCity);
             System.out.println("\033[1;32m" + correctedCity + " has been searched: " + cityFrequency + " times.\033[0m");
             FrequencyCount.displayWordFrequency(cityWordCountMap, correctedCity);
-            FrequencyCount.searchListings(cityListingsMap, correctedCity);
+
+            // Display search results for the city
+            List<String[]> listings = cityListingsMap.get(correctedCity);
+            if (listings != null && !listings.isEmpty()) {
+                for (String[] listing : listings) {
+                    System.out.println("Price: " + listing[0]);
+                    System.out.println("Address: " + listing[1]);
+                    System.out.println("City: " + listing[2]);
+                    System.out.println("Province: " + listing[3]);
+                    System.out.println("Details: " + listing[4]);
+                    System.out.println("URL: " + listing[5]);
+                    System.out.println("Image File: " + listing[6]);
+                    System.out.println();
+                }
+            } else {
+                System.out.println("No listings found for city: " + correctedCity);
+            }
+
+            // Ask if user wants to apply the budget filter
+            System.out.print("\033[1;36mDo you want to apply a budget filter? (yes/no):\033[0m ");
+            String applyFilter = scanner.nextLine().trim().toLowerCase();
+            if (applyFilter.equals("yes")) {
+                FilterByPrice.filter(scanner, csvFilePath, correctedCity); // Pass the corrected city name
+            }
         }
     }
+
+
+
 
     private static void displayProvinceCodes() {
         System.out.println("\033[1;36mAvailable Province Codes:\033[0m");
@@ -211,8 +271,8 @@ public class Main {
 
             System.out.println("Top suggestions:");
             int count = 1;
-            for (String suggestion : suggestions.subList(0, Math.min(suggestions.size(), 5))) {  // Corrected here
-                System.out.println(count++ + ". " + suggestion.split(" \\(")[0]);  // Remove frequency and display only the city
+            for (String suggestion : suggestions.subList(0, Math.min(suggestions.size(), 5))) {
+                System.out.println(count++ + ". " + suggestion.split(" \\(")[0]);
             }
 
             System.out.println("Enter a number (1-5) to select a city, type a new prefix to get new suggestions, or 'back' to return:");
@@ -228,13 +288,12 @@ public class Main {
                     if (selectedIndex >= 0 && selectedIndex < Math.min(suggestions.size(), 5)) {
                         String selectedCity = suggestions.get(selectedIndex).split(" \\(")[0];
                         System.out.println("You selected: " + selectedCity);
-                        searchCityDirectly(csvFilePath, searchTracker, cityWordCountMap, cityListingsMap, selectedCity);
+                        searchCityDirectly(scanner, csvFilePath, searchTracker, cityWordCountMap, cityListingsMap, selectedCity); // Pass scanner
                         break;  // Break the inner loop to restart or exit
                     } else {
                         System.out.println("Invalid selection. Please enter a number (1-5), a new prefix, or 'back'.");
                     }
                 } catch (NumberFormatException e) {
-                    // If the input was not a number, check if it's a valid prefix for new suggestions
                     List<String> newSuggestions = autocomplete.getSuggestions(selection);
                     if (!newSuggestions.isEmpty()) {
                         suggestions = newSuggestions;
@@ -253,24 +312,49 @@ public class Main {
     }
 
 
-    private static void searchCityDirectly(String csvFilePath,
+    private static void searchCityDirectly(Scanner scanner, String csvFilePath,
                                            SearchFrequencyTracker searchTracker, Map<String, Integer> cityWordCountMap,
                                            Map<String, List<String[]>> cityListingsMap, String city) {
-        // Parse the CSV only if needed or consider moving this to initialization if static data
         FrequencyCount.parseCSV(csvFilePath, cityWordCountMap, cityListingsMap, new HashMap<>(), new HashMap<>());
 
         int cityFrequency = searchTracker.search(city);
         System.out.println("\033[1;32m" + city + " has been searched: " + cityFrequency + " times.\033[0m");
         FrequencyCount.displayWordFrequency(cityWordCountMap, city);
-        FrequencyCount.searchListings(cityListingsMap, city);
+
+        // Display search results for the city
+        List<String[]> listings = cityListingsMap.get(city);
+        if (listings != null && !listings.isEmpty()) {
+            for (String[] listing : listings) {
+                System.out.println("Price: " + listing[0]);
+                System.out.println("Address: " + listing[1]);
+                System.out.println("City: " + listing[2]);
+                System.out.println("Province: " + listing[3]);
+                System.out.println("Details: " + listing[4]);
+                System.out.println("URL: " + listing[5]);
+                System.out.println("Image File: " + listing[6]);
+                System.out.println();
+            }
+        } else {
+            System.out.println("No listings found for city: " + city);
+        }
+
+        // Ask if user wants to apply the budget filter
+        System.out.print("\033[1;36mDo you want to apply a budget filter? (yes/no):\033[0m ");
+        String applyFilter = scanner.nextLine().trim().toLowerCase();
+        if (applyFilter.equals("yes")) {
+            FilterByPrice.filter(scanner, csvFilePath, city); // Pass the city name
+        }
     }
+
+
+
 
     private static void handlePageRanking(Scanner scanner, String csvFilePath) {
         System.out.println("Enter search keywords (space-separated): ");
-        String user_Input = scanner.nextLine(); // Read user input
-        String[] search_Keywords = user_Input.split("\\s+"); // Split the input into an array of keywords
+        String userInput = scanner.nextLine(); // Read user input
+        String[] searchKeywords = userInput.split("\\s+"); // Split the input into an array of keywords
 
-        PageRanking_BM page_Rank = new PageRanking_BM(csvFilePath, search_Keywords);
-        page_Rank.print_TopRankedProperties(10);
+        PageRanking_BM pageRank = new PageRanking_BM(csvFilePath, searchKeywords);
+        pageRank.print_TopRankedProperties(10); // Corrected method name
     }
 }
