@@ -93,7 +93,7 @@ public class Main {
                     }
                     break;
                 case 8:
-                    System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
+                    System.out.println("\033[1;32mClosing the app. Catch you later, property hunter! \033[0m");
                     scanner.close();
                     return; // Exit the program
                 default:
@@ -131,13 +131,13 @@ public class Main {
 
     private static void printMenu() {
         System.out.println("\033[1;36mSelect an option:\033[0m");
-        System.out.println("\033[1;33m1. Update CSV using web scraper");
-        System.out.println("2. Search by province using existing CSV");
-        System.out.println("3. Search by city using existing CSV");
-        System.out.println("4. Search by budget using existing CSV");
-        System.out.println("5. Search by bedrooms and bathrooms using existing CSV");
-        System.out.println("6. Autocomplete City Suggestions");
-        System.out.println("7. Page Ranking Search");
+        System.out.println("\033[1;33m1. Update listings with the magic scraper");
+        System.out.println("2. Explore properties by Province");
+        System.out.println("3. Discover homes by City");
+        System.out.println("4. Find your dream property within your Budget");
+        System.out.println("5. Search cozy homes by bedrooms and bathrooms");
+        System.out.println("6. City Name Autocomplete");
+        System.out.println("7. Hunt for properties using keywords");
         System.out.println("8. Exit\033[0m");
         System.out.println("\033[1;34m=============================\033[0m");
     }
@@ -154,7 +154,7 @@ public class Main {
                 return; // Go back to the main menu
             }
             if (provinceCode.equalsIgnoreCase("exit")) {
-                System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
+                System.out.println("\033[1;32mClosing the app. Catch you later, property hunter! \033[0m");
                 System.exit(0);
             }
             if (!provinceCodes.containsKey(provinceCode)) {
@@ -206,7 +206,7 @@ public class Main {
                 return; // Go back to the main menu
             }
             if (city.matches("(?i)exit")) {
-                System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
+                System.out.println("\033[1;32mClosing the app. Catch you later, property hunter! \033[0m");
                 System.exit(0);
             }
             String correctedCity = spellChecker.checkSpelling(city, scanner);

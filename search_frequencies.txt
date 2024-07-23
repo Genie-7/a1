@@ -1,4 +1,4 @@
-windsor: 68
+windsor: 69
 ab: 1
 bc: 3
 toronto: 24
