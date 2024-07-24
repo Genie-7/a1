@@ -1,8 +1,8 @@
 windsor: 69
 ab: 1
-bc: 3
-rishabh: 6
-toronto: 24
+bc: 2
+east royalty: 1
+toronto: 16
 5000000.0-6000000.0: 1
 400000.0-500000.0: 9
 vernon: 1

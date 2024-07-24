@@ -6,6 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.commons.io.FileUtils;
+import java.net.URL;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -34,8 +39,8 @@ public class RemaxWebScraper {
     private static final int MAX_PAGES = 10;
     private static final int WAIT_TIMEOUT = 120;
     private static final int MAX_RETRIES = 10;
-    private static final int RETRY_DELAY = 1000; // milliseconds
-    private static final int PAGE_LOAD_WAIT = 5000; // milliseconds
+    private static final int RETRY_DELAY = 4000; // milliseconds
+    private static final int PAGE_LOAD_WAIT = 10000; // milliseconds
 
     private Set<String> globalProcessedAddresses = new HashSet<>();
 

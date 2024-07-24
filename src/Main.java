@@ -22,12 +22,22 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        RemaxWebScraper scraper = new RemaxWebScraper();
+        RemaxWebScraper remaxWebScraper = new RemaxWebScraper();
+        ZoloWebScraper zoloWebScraper = new ZoloWebScraper();
+        CSVMerger csvMerger = new CSVMerger();
         Map<String, Integer> cityWordCountMap = new HashMap<>();
         Map<String, List<String[]>> cityListingsMap = new HashMap<>();
         Map<String, Integer> provinceWordCountMap = new HashMap<>();
         Map<String, List<String[]>> provinceListingsMap = new HashMap<>();
-        autocomplete.buildVocabularyFromRemaxFile("remax_listings.csv"); // Adjust path accordingly
+
+        File csvFile = new File("remax_listings.csv");
+
+        if (!csvFile.exists()) {
+            System.out.println("CSV file not found");
+            remaxWebScraper.scrapeMultipleLocations();
+        } else {
+            autocomplete.buildVocabularyFromRemaxFile("remax_listings.csv"); // Adjust path accordingly
+        }
 
         SearchFrequencyTracker searchTracker = new SearchFrequencyTracker();
         SpellChecker spellChecker = new SpellChecker();
@@ -62,13 +72,26 @@ public class Main {
             String csvFilePath = "remax_listings.csv"; // CSV path remains unchanged
 
             switch (choice) {
-                /*case 1:
-                    try {
-                        scraper.scrape();
-                    } catch (IOException e) {
-                        System.out.println("\033[1;31mError updating CSV: " + e.getMessage() + "\033[0m");
+                case 1:
+                    System.out.println("\033[1;31mAre you sure you want to update the CSV Files?\n" +
+                            "This is a lengthy process and will take some time ~30 minutes\n" +
+                            "Type \"yes\" to continue anything else to go back\033[0m");
+                    String user_input = scanner.nextLine().trim();
+                    if (user_input.equals("yes")) {
+                        try {
+                            remaxWebScraper.scrapeMultipleLocations();
+                            zoloWebScraper.scrapeAllLocations();
+                            csvMerger.appendZoloToRemax("remax_listings.csv", "zolo_listings.csv");
+                            System.out.println("\033[1;32mRemax CSV updated and Zolo listings appended successfully.\033[0m");
+                        } catch (Exception e) {
+                            System.out.println("\033[1;31mError updating and appending CSV files: " + e.getMessage() + "\033[0m");
+                        }
+                        user_input = null;
                     }
-                    break;*/
+                    else{
+                        break;
+                    }
+                    break;
                 case 2:
                     searchByProvince(scanner, csvFilePath, spellChecker, searchTracker, provinceWordCountMap, provinceListingsMap);
                     break;

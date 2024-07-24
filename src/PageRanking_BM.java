@@ -5,7 +5,7 @@ import java.util.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-
+//Todo show when no results
 public class PageRanking_BM {
     private Map<String, Map<String, Integer>> invertedIndex = new HashMap<>();
     private Map<String, String> propertyContent = new HashMap<>();
