@@ -10,6 +10,7 @@ katepwa beach
 ab
 north kawartha
 hanmer
+halifax regional municipality
 sun peaks
 muenster
 nestor falls
@@ -46,6 +47,7 @@ dawson creek
 gravenhurst
 kelowna
 kamloops
+goulds
 estey's bridge
 headingley
 crow head
@@ -75,6 +77,7 @@ trail
 carlyle
 fenwick
 blue cove
+teslin
 callander
 shippagan
 taylors brook
@@ -82,6 +85,8 @@ hilton beach
 town of fogo island
 change islands
 brackley
+st john’s
+st.john’s
 exner's twin bays
 chestermere
 fogo island( tilting)
@@ -138,6 +143,7 @@ greater sudbury
 kawartha lakes
 manitoba
 toronto w10
+portugal cove - st. philips
 okotoks
 north end
 collingwood
@@ -170,6 +176,7 @@ toronto w08
 niverville
 lively
 buena vista
+portugal cove - st. phillips
 bayview
 oakville
 prince edward county
@@ -215,12 +222,14 @@ lajord rm no. 128
 priddis greens
 drumheller
 noonan
+petty harbour maddox cove
 weyburn
 hamilton
 kirkland lake
 quesnel
 emma lake
 portugal cove st philips
+halifax ns
 mb
 ingram
 langley
@@ -228,6 +237,7 @@ stag harbour
 esquimalt
 brighton
 tecumseh
+portugal cove- st. philip's
 prince albert
 squamish
 portland hills
@@ -241,6 +251,7 @@ bracebridge
 orleans
 rural parkland county
 hanover
+whitehorse south
 beaver creek
 st. anthony
 christina lake
@@ -258,6 +269,8 @@ nt
 crawford bay
 nanaimo
 shaunavon
+portugal cove-st. phillips
+out of area
 unity
 west kelowna
 matachewan
@@ -328,9 +341,11 @@ fogo island
 coniston
 canim lake
 crossfield
+portugal cove-st philips
 manitouwadge
 toronto
 waterloo
+whitehorse north
 portugal cove st. philip's
 bonfield
 mermaid
@@ -345,11 +360,13 @@ yukon wide
 clayton rm no. 333
 nepean
 logy bay
+st
 smooth rock falls
 fort liard
 grandview beach
 clive
 coppersands
+sarnia
 sault ste marie
 portugal cove
 duck lake rm no. 463
@@ -394,6 +411,7 @@ fredericton
 cartier
 east st paul
 thunder bay
+johns
 roddickton bide arm
 medicine hat
 wanup
@@ -404,6 +422,7 @@ central elgin
 salmon arm
 rocky harbour
 wahnapitae
+topsail
 douro dummer
 west royalty
 armstrong
@@ -467,6 +486,7 @@ aurora
 beamsville
 purcell's cove
 st. charles
+conception bay south
 fairview
 yellowknife
 levack
@@ -495,6 +515,7 @@ dryden
 cypress hills provincial park
 woodlawn
 king
+portugal cove - st philips
 lloydminster
 merritt's harbour
 greenstone
@@ -533,6 +554,7 @@ alert bay
 parkview
 bellevue
 canmore
+cbs
 leduc
 hearst
 parkdale

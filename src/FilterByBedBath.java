@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FilterByBedBath {
-    // Updated pattern to handle both "5 bed" and "5+1 bed" formats
+    // Updated pattern to handle both "n bed" and "n+1 bed" formats
     private static final Pattern BED_BATH_PATTERN = Pattern.compile("(\\d+\\+?\\d*) bed (\\d+) bath");
 
     public static void filter(Scanner scanner, String csvFilePath) {
@@ -71,10 +71,12 @@ public class FilterByBedBath {
                     Matcher matcher = BED_BATH_PATTERN.matcher(columns[4]);
                     if (matcher.find()) {
                         String bedGroup = matcher.group(1);
-                        int bedCount = bedGroup.contains("+") ? Integer.parseInt(bedGroup.split("\\+")[0]) + 1 : Integer.parseInt(bedGroup);
+                        int bedCount = parseBedCount(bedGroup);
                         int bathCount = Integer.parseInt(matcher.group(2));
-                        if ((bedCount == beds || (beds == 5 && bedCount == 6)) && bathCount == baths) {
-                            filteredListings.add(columns);
+                        if ((bedCount == beds) || (beds + 1 == bedCount && bedGroup.contains("+"))) {
+                            if (bathCount == baths) {
+                                filteredListings.add(columns);
+                            }
                         }
                     }
                 }
@@ -83,6 +85,15 @@ public class FilterByBedBath {
             e.printStackTrace();
         }
         return filteredListings;
+    }
+
+    private static int parseBedCount(String bedGroup) {
+        if (bedGroup.contains("+")) {
+            String[] parts = bedGroup.split("\\+");
+            return Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]);
+        } else {
+            return Integer.parseInt(bedGroup);
+        }
     }
 
     private static String[] parseCSVLine(String line) {

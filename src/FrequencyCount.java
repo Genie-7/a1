@@ -2,9 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class FrequencyCount {
+
     // Method to parse the CSV file and update word frequencies in the map
     public static void parseCSV(String filePath, Map<String, Integer> cityWordCountMap, Map<String, List<String[]>> cityListingsMap, Map<String, Integer> provinceWordCountMap, Map<String, List<String[]>> provinceListingsMap) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -14,7 +14,7 @@ public class FrequencyCount {
                 String[] columns = parseCSVLine(line);
                 if (columns.length >= 7) {
                     String city = columns[2].toLowerCase();
-                    String province = columns[3].toLowerCase();
+                    String province = columns[3].toUpperCase();
 
                     cityWordCountMap.put(city, cityWordCountMap.getOrDefault(city, 0) + 1);
                     cityListingsMap.computeIfAbsent(city, k -> new ArrayList<>()).add(columns);
@@ -56,45 +56,26 @@ public class FrequencyCount {
     }
 
     // Method to display the frequency of a specific word
-    public static void displayWordFrequency(Map<String, Integer> wordCountMap, String word) {
-        word = word.toLowerCase();
-        int count = wordCountMap.getOrDefault(word, 0);
+    public static void displayWordFrequency(Map<String, Integer> wordCountMap, String word, boolean isProvince) {
+        word = isProvince ? word.toUpperCase() : word.toLowerCase(); // Convert word to uppercase for province, lowercase for city
+        int count = wordCountMap.getOrDefault(word, 0); // Looks up the word in the correct case
         System.out.println("Frequency of '" + word + "': " + count);
     }
 
-    // Method to display the listings of a specific word
-    public static void displayListings(Map<String, List<String[]>> listingsMap, String word) {
-        word = word.toLowerCase();
-        List<String[]> listings = listingsMap.getOrDefault(word, new ArrayList<>());
-
-        if (listings.isEmpty()) {
-            System.out.println("No listings found for '" + word + "'.");
-        } else {
-            System.out.println("Listings for '" + word + "':");
-            for (String[] columns : listings) {
-                System.out.println("Price: " + columns[0]);
-                System.out.println("Address: " + columns[1]);
-                System.out.println("City: " + columns[2]);
-                System.out.println("Province: " + columns[3]);
-                System.out.println("Details: " + columns[4]);
-                System.out.println("URL: " + columns[5]);
-                if (columns.length > 6) {
-                    System.out.println("Image File: " + columns[6]);
-                }
-                System.out.println();
-            }
-        }
-    }
-
     // Method to search for listings using Boyer-Moore algorithm
-    public static void searchListings(Map<String, List<String[]>> listingsMap, String word) {
+    public static void searchListings(Map<String, List<String[]>> listingsMap, String word, Map<String, Integer> searchFrequencyMap) {
         word = word.toLowerCase();
         BoyerMoore bm = new BoyerMoore(word);
 
         List<String[]> results = new ArrayList<>();
         for (String key : listingsMap.keySet()) {
-            if (bm.search(key) < key.length()) {
-                results.addAll(listingsMap.get(key));
+            for (String[] listing : listingsMap.get(key)) {
+                String details = listing[4].toLowerCase(); // Assume that column 4 contains details to search within
+                if (bm.search(details) < details.length()) {
+                    results.add(listing);
+                    String listingKey = Arrays.toString(listing);
+                    searchFrequencyMap.put(listingKey, searchFrequencyMap.getOrDefault(listingKey, 0) + 1);
+                }
             }
         }
 

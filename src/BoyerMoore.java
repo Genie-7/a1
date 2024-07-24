@@ -6,7 +6,7 @@ public class BoyerMoore {
 
     // pattern provided as a string
     public BoyerMoore(String pat) {
-        this.R = 70000;
+        this.R = 70000 ;
         this.pat = pat;
 
         // position of rightmost occurrence of c in the pattern

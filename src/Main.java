@@ -25,10 +25,13 @@ public class Main {
         RemaxWebScraper remaxWebScraper = new RemaxWebScraper();
         ZoloWebScraper zoloWebScraper = new ZoloWebScraper();
         CSVMerger csvMerger = new CSVMerger();
+
+        // HashMaps to store frequency and listings
         Map<String, Integer> cityWordCountMap = new HashMap<>();
         Map<String, List<String[]>> cityListingsMap = new HashMap<>();
         Map<String, Integer> provinceWordCountMap = new HashMap<>();
         Map<String, List<String[]>> provinceListingsMap = new HashMap<>();
+        Map<String, Integer> searchFrequencyMap = new HashMap<>();
 
         File csvFile = new File("remax_listings.csv");
 
@@ -79,8 +82,8 @@ public class Main {
                     String user_input = scanner.nextLine().trim();
                     if (user_input.equals("yes")) {
                         try {
-                            remaxWebScraper.scrapeMultipleLocations();
-                            zoloWebScraper.scrapeAllLocations();
+                            //remaxWebScraper.scrapeMultipleLocations();
+                            //zoloWebScraper.scrapeAllLocations();
                             csvMerger.appendZoloToRemax("remax_listings.csv", "zolo_listings.csv");
                             System.out.println("\033[1;32mRemax CSV updated and Zolo listings appended successfully.\033[0m");
                         } catch (Exception e) {
@@ -93,10 +96,10 @@ public class Main {
                     }
                     break;
                 case 2:
-                    searchByProvince(scanner, csvFilePath, spellChecker, searchTracker, provinceWordCountMap, provinceListingsMap);
+                    searchByProvince(scanner, csvFilePath, spellChecker, searchTracker, provinceWordCountMap, provinceListingsMap, searchFrequencyMap);
                     break;
                 case 3:
-                    searchByCity(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap);
+                    searchByCity(scanner, csvFilePath, spellChecker, searchTracker, cityWordCountMap, cityListingsMap, searchFrequencyMap);
                     break;
                 case 4:
                     FilterByPrice.filter(scanner, csvFilePath, "");
@@ -167,7 +170,7 @@ public class Main {
 
     private static void searchByProvince(Scanner scanner, String csvFilePath, SpellChecker spellChecker,
                                          SearchFrequencyTracker searchTracker, Map<String, Integer> provinceWordCountMap,
-                                         Map<String, List<String[]>> provinceListingsMap) {
+                                         Map<String, List<String[]>> provinceListingsMap, Map<String, Integer> searchFrequencyMap) {
         FrequencyCount.parseCSV(csvFilePath, new HashMap<>(), new HashMap<>(), provinceWordCountMap, provinceListingsMap);
         displayProvinceCodes();
         while (true) {
@@ -187,11 +190,12 @@ public class Main {
             }
             int provinceFrequency = searchTracker.search(provinceCode);
             System.out.println("\033[1;32m" + provinceCodes.get(provinceCode) + " (" + provinceCode + ") has been searched: " + provinceFrequency + " times.\033[0m");
-            FrequencyCount.displayWordFrequency(provinceWordCountMap, provinceCode);
+            FrequencyCount.displayWordFrequency(provinceWordCountMap, provinceCode, true);
 
             // Display search results for the province
-            List<String[]> listings = provinceListingsMap.get(provinceCode.toLowerCase()); // Ensure case insensitivity
+            List<String[]> listings = provinceListingsMap.get(provinceCode.toUpperCase()); // Ensure case insensitivity
             if (listings != null && !listings.isEmpty()) {
+                System.out.println("Listings for '" + provinceCode + "':");
                 for (String[] listing : listings) {
                     System.out.println("Price: " + listing[0]);
                     System.out.println("Address: " + listing[1]);
@@ -207,22 +211,12 @@ public class Main {
             } else {
                 System.out.println("No listings found for province: " + provinceCodes.get(provinceCode));
             }
-
-            // Ask if user wants to apply the budget filter
-            System.out.print("\033[1;36mDo you want to apply a budget filter? (yes/no):\033[0m ");
-            String applyFilter = scanner.nextLine().trim().toLowerCase();
-            if (applyFilter.equals("yes")) {
-                FilterByPrice.filter(scanner, csvFilePath, provinceCode); // Pass the province code
-            }
         }
     }
 
-
-
-
     private static void searchByCity(Scanner scanner, String csvFilePath, SpellChecker spellChecker,
                                      SearchFrequencyTracker searchTracker, Map<String, Integer> cityWordCountMap,
-                                     Map<String, List<String[]>> cityListingsMap) {
+                                     Map<String, List<String[]>> cityListingsMap, Map<String, Integer> searchFrequencyMap) {
         FrequencyCount.parseCSV(csvFilePath, cityWordCountMap, cityListingsMap, new HashMap<>(), new HashMap<>());
         while (true) {
             System.out.print("\033[1;36mEnter the city name (or type 'back' to return to the main menu, 'exit' to quit):\033[0m ");
@@ -238,13 +232,14 @@ public class Main {
             if (correctedCity.equalsIgnoreCase("None of the above")) {
                 return; // Go back to the main menu
             }
-            int cityFrequency = searchTracker.search(correctedCity);
+            int cityFrequency = searchTracker.search(correctedCity.toLowerCase());
             System.out.println("\033[1;32m" + correctedCity + " has been searched: " + cityFrequency + " times.\033[0m");
-            FrequencyCount.displayWordFrequency(cityWordCountMap, correctedCity);
+            FrequencyCount.displayWordFrequency(cityWordCountMap, correctedCity.toLowerCase(), false);
 
             // Display search results for the city
-            List<String[]> listings = cityListingsMap.get(correctedCity);
+            List<String[]> listings = cityListingsMap.get(correctedCity.toLowerCase());
             if (listings != null && !listings.isEmpty()) {
+                System.out.println("Listings for '" + correctedCity + "':");
                 for (String[] listing : listings) {
                     System.out.println("Price: " + listing[0]);
                     System.out.println("Address: " + listing[1]);
@@ -260,26 +255,6 @@ public class Main {
             } else {
                 System.out.println("No listings found for city: " + correctedCity);
             }
-
-            // Ask if user wants to apply the budget filter
-            System.out.print("\033[1;36mDo you want to apply a budget filter? (yes/no):\033[0m ");
-            String applyFilter = scanner.nextLine().trim().toLowerCase();
-            if (applyFilter.equals("yes")) {
-                FilterByPrice.filter(scanner, csvFilePath, correctedCity); // Pass the corrected city name
-            }
-        }
-    }
-
-
-
-
-
-
-
-    private static void displayProvinceCodes() {
-        System.out.println("\033[1;36mAvailable Province Codes:\033[0m");
-        for (Map.Entry<String, String> entry : provinceCodes.entrySet()) {
-            System.out.println(entry.getKey() + " - " + entry.getValue());
         }
     }
 
@@ -341,7 +316,6 @@ public class Main {
         }
     }
 
-
     private static void searchCityDirectly(Scanner scanner, String csvFilePath,
                                            SearchFrequencyTracker searchTracker, Map<String, Integer> cityWordCountMap,
                                            Map<String, List<String[]>> cityListingsMap, String city) {
@@ -349,11 +323,12 @@ public class Main {
 
         int cityFrequency = searchTracker.search(city);
         System.out.println("\033[1;32m" + city + " has been searched: " + cityFrequency + " times.\033[0m");
-        FrequencyCount.displayWordFrequency(cityWordCountMap, city);
+        FrequencyCount.displayWordFrequency(cityWordCountMap, city, false);
 
         // Display search results for the city
-        List<String[]> listings = cityListingsMap.get(city);
+        List<String[]> listings = cityListingsMap.get(city.toLowerCase());
         if (listings != null && !listings.isEmpty()) {
+            System.out.println("Listings for '" + city + "':");
             for (String[] listing : listings) {
                 System.out.println("Price: " + listing[0]);
                 System.out.println("Address: " + listing[1]);
@@ -361,23 +336,22 @@ public class Main {
                 System.out.println("Province: " + listing[3]);
                 System.out.println("Details: " + listing[4]);
                 System.out.println("URL: " + listing[5]);
-                System.out.println("Image File: " + listing[6]);
+                if (listing.length > 6) {
+                    System.out.println("Image File: " + listing[6]);
+                }
                 System.out.println();
             }
         } else {
             System.out.println("No listings found for city: " + city);
         }
-
-        // Ask if user wants to apply the budget filter
-        System.out.print("\033[1;36mDo you want to apply a budget filter? (yes/no):\033[0m ");
-        String applyFilter = scanner.nextLine().trim().toLowerCase();
-        if (applyFilter.equals("yes")) {
-            FilterByPrice.filter(scanner, csvFilePath, city); // Pass the city name
-        }
     }
 
-
-
+    private static void displayProvinceCodes() {
+        System.out.println("\033[1;36mAvailable Province Codes:\033[0m");
+        for (Map.Entry<String, String> entry : provinceCodes.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
+    }
 
     private static void handlePageRanking(Scanner scanner, String csvFilePath) {
         System.out.println("Enter search keywords (space-separated): ");

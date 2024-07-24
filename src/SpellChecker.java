@@ -22,7 +22,7 @@ class Trie {
 
     public void insert(String word) {
         TrieNode node = root;
-        for (char c : word.toCharArray()) {
+        for (char c : word.toLowerCase().toCharArray()) { // Ensure word is lowercased
             node = node.children.computeIfAbsent(c, k -> new TrieNode());
         }
         node.isEndOfWord = true;
@@ -30,7 +30,7 @@ class Trie {
 
     public boolean search(String word) {
         TrieNode node = root;
-        for (char c : word.toCharArray()) {
+        for (char c : word.toLowerCase().toCharArray()) { // Ensure search is lowercased
             node = node.children.get(c);
             if (node == null) {
                 return false;
@@ -41,7 +41,7 @@ class Trie {
 
     public List<String> startsWith(String prefix) {
         TrieNode node = root;
-        for (char c : prefix.toCharArray()) {
+        for (char c : prefix.toLowerCase().toCharArray()) { // Ensure prefix is lowercased
             node = node.children.get(c);
             if (node == null) {
                 return Collections.emptyList();
@@ -76,7 +76,7 @@ public class SpellChecker {
             try (BufferedReader br = new BufferedReader(new FileReader(dictionaryFile))) {
                 String word;
                 while ((word = br.readLine()) != null) {
-                    dictionary.insert(word.trim().toLowerCase());
+                    dictionary.insert(word.trim().toLowerCase()); // Ensure word is lowercased
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -85,7 +85,7 @@ public class SpellChecker {
     }
 
     public List<String> getSuggestions(String input) {
-        List<String> suggestions = dictionary.startsWith(input.toLowerCase());
+        List<String> suggestions = dictionary.startsWith(input.toLowerCase()); // Ensure input is lowercased
         if (suggestions.isEmpty()) {
             return getClosestWords(input);
         }
@@ -93,7 +93,7 @@ public class SpellChecker {
     }
 
     public String checkSpelling(String input, Scanner scanner) {
-        if (dictionary.search(input.toLowerCase())) {
+        if (dictionary.search(input.toLowerCase())) { // Ensure input is lowercased
             return input;
         }
 
@@ -110,7 +110,7 @@ public class SpellChecker {
                     System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
                     System.exit(0);
                 }
-                if (dictionary.search(input.toLowerCase())) {
+                if (dictionary.search(input.toLowerCase())) { // Ensure input is lowercased
                     return input;
                 }
                 suggestions = getSuggestions(input);
@@ -144,7 +144,7 @@ public class SpellChecker {
                             System.out.println("\033[1;32mExiting the program. Goodbye!\033[0m");
                             System.exit(0);
                         }
-                        if (dictionary.search(input.toLowerCase())) {
+                        if (dictionary.search(input.toLowerCase())) { // Ensure input is lowercased
                             return input;
                         }
                         suggestions = getSuggestions(input);
@@ -162,7 +162,7 @@ public class SpellChecker {
         List<String> closestWords = new ArrayList<>();
         int maxDistance = 3; // Maximum edit distance allowed
         for (String word : getAllWords()) {
-            int distance = editDistance(input, word);
+            int distance = editDistance(input.toLowerCase(), word); // Ensure input is lowercased
             if (distance <= maxDistance) {
                 closestWords.add(word);
             }
