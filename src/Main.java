@@ -195,6 +195,8 @@ public class Main {
     }
 
 
+
+
     private static void searchByCity(Scanner scanner, String csvFilePath, SpellChecker spellChecker,
                                      SearchFrequencyTracker searchTracker, Map<String, Integer> cityWordCountMap,
                                      Map<String, List<String[]>> cityListingsMap) {
@@ -227,7 +229,9 @@ public class Main {
                     System.out.println("Province: " + listing[3]);
                     System.out.println("Details: " + listing[4]);
                     System.out.println("URL: " + listing[5]);
-                    System.out.println("Image File: " + listing[6]);
+                    if (listing.length > 6) {
+                        System.out.println("Image File: " + listing[6]);
+                    }
                     System.out.println();
                 }
             } else {
@@ -242,6 +246,9 @@ public class Main {
             }
         }
     }
+
+
+
 
 
 

@@ -5,9 +5,6 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 public class FrequencyCount {
-    private static final Pattern DETAILS_PATTERN = Pattern.compile("\\d+ bed \\d+ bath");
-    private static final Pattern URL_PATTERN = Pattern.compile("https?://[\\w.-]+(/[-\\w./?%&=]*)?");
-
     // Method to parse the CSV file and update word frequencies in the map
     public static void parseCSV(String filePath, Map<String, Integer> cityWordCountMap, Map<String, List<String[]>> cityListingsMap, Map<String, Integer> provinceWordCountMap, Map<String, List<String[]>> provinceListingsMap) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -16,20 +13,6 @@ public class FrequencyCount {
             while ((line = br.readLine()) != null) {
                 String[] columns = parseCSVLine(line);
                 if (columns.length >= 7) {
-                    String details = columns[4];
-                    String url = columns[5];
-
-                    if (!DETAILS_PATTERN.matcher(details).matches()) {
-                        details = "Invalid details format";
-                    }
-
-                    if (!URL_PATTERN.matcher(url).matches()) {
-                        url = "Invalid URL format";
-                    }
-
-                    columns[4] = details;
-                    columns[5] = url;
-
                     String city = columns[2].toLowerCase();
                     String province = columns[3].toLowerCase();
 

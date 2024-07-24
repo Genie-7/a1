@@ -1,18 +1,19 @@
 windsor: 69
 ab: 1
 bc: 3
+rishabh: 6
 toronto: 24
 5000000.0-6000000.0: 1
 400000.0-500000.0: 9
 vernon: 1
-lasalle: 5
+lasalle: 8
 quesnel: 1
 edmonton: 3
 mattawa: 1
 108 mile ranch: 1
 3: 1
 lassale: 2
-winnipeg: 13
+winnipeg: 14
 mb: 1
 400000.0-450000.0: 1
 esquimalt: 4
