@@ -82,10 +82,10 @@ public class Main {
                     String user_input = scanner.nextLine().trim();
                     if (user_input.equals("yes")) {
                         try {
-                            //remaxWebScraper.scrapeMultipleLocations();
-                            //zoloWebScraper.scrapeAllLocations();
+                            remaxWebScraper.scrapeMultipleLocations();
+                            zoloWebScraper.scrapeAllLocations();
                             csvMerger.appendZoloToRemax("remax_listings.csv", "zolo_listings.csv");
-                            System.out.println("\033[1;32mRemax CSV updated and Zolo listings appended successfully.\033[0m");
+                            TorontoDataCleaner.torontoDataCleaner("remax_listings.csv");                            System.out.println("\033[1;32mRemax CSV updated and Zolo listings appended successfully.\033[0m");
                         } catch (Exception e) {
                             System.out.println("\033[1;31mError updating and appending CSV files: " + e.getMessage() + "\033[0m");
                         }
