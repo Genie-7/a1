@@ -1,561 +1,502 @@
-peachland
 east royalty
-lamont
-stoney creek
-east garafraxa
+old dartmouth
 view royal
 faro
+markstay
+melfort
+grand forks
 adjala tosorontio
-katepwa beach
 ab
-north kawartha
+golden days
+didsbury
 hanmer
 halifax regional municipality
-sun peaks
-muenster
-nestor falls
-beaumont
-108 mile ranch
-chatham
+blind bay
+red rock
+warren
+sylvan lake
+goodsoil
 north bay
-toronto c10
-toronto c11
-avonmore
-toronto c13
-morinville
-toronto c14
-nairn centre
-toronto c15
+verner
+ponoka
 englehart
+kimberley
 portugal cove st. philips
 port coquitlam
 harry's harbour
-big shell
 bc
 powell river
 oliver paipoonge
 hillgrade
+sunset estates
 halifax peninsula
 lethbridge
 eastern passage
+oliver/paipoonge
+st. catharines
 warren grove
 vancouver
 seal cove
 kenora
 temiskaming shores
 dawson creek
-gravenhurst
 kelowna
 kamloops
 goulds
 estey's bridge
-headingley
 crow head
-remote areas
+headingley
+monetville
 langford
 barker's point
-val therese
 rural lac ste. anne county
-quinte west
+shuniah
 portugal cove st phillip's
-wakaw
+uxbridge
+north perth
 kitchener
-lakeshore
-hurkett
-blackfalds
-hague
+wellesley
+jackfish lake
+iroquois lake
 west st paul
-imperial
+new westminster
+salmo
 clarington
 norman wells
 london
 rural rocky view county
-rural
-british columbia
+iron bridge
 st. patrick's
-trail
-carlyle
-fenwick
 blue cove
+long lake
 teslin
 callander
 shippagan
 taylors brook
-hilton beach
 town of fogo island
 change islands
-brackley
+slave lake
 st john’s
 st.john’s
-exner's twin bays
+cortes island
 chestermere
+maple ridge
+cardinal
 fogo island( tilting)
 lasalle
 guelph
-rural vulcan county
 colwood
 noinville
-mattice val cote
-toronto e10
+niagara falls
 flowers cove
-toronto e11
-slocan
+success
 paradise
+greenwater lake
 vaughan
-coleman
 penticton
 county of
-turtle lake
 morson
-toronto c01
-toronto c02
-toronto c03
-toronto c04
-portage la prairie
 killarney road
-toronto c06
-toronto c07
 fogo island(shoal bay)
+vulcan
 barrie
-toronto c08
-aberdeen rm no. 373
 st. albert
 metchosin
-spanish
 windsor
 armdale
 penniac
 highlands
 happy valley / goose bay
-kagawong
-fort erie
+biggar
+waskesiu lake
+invermere
 trent hills
 fogo island( joe batts arm)
+kaminstiquia
 stewart crossing
-atikokan
+macdonald
 jacksons arm
-smith ennismore lakefield
-mine center
 rural wetaskiwin county
 outlook
+bridge lake
 maugerville
 greater sudbury
+rural strathcona county
 kawartha lakes
+maidstone
 manitoba
-toronto w10
 portugal cove - st. philips
 okotoks
-north end
-collingwood
-slocan park
 niagara on the lake
 dartmouth
-grande prairie
+johnson township
 winnipeg
 meadow lake rm no.588
+embrun
+mayerthorpe
+marwayne
+wasaga beach
 victoria
-searchmont
 moreton's harbour
-massey
-macklin
 labrador city
-toronto w01
 st. john’s
-toronto w03
-toronto w02
 rocky point
-toronto w05
-edson
-toronto w04
 brantford
-toronto w07
-oxdrift
-toronto w06
-toronto w09
-toronto w08
-niverville
 lively
-buena vista
 portugal cove - st. phillips
+port moody
+montrose
 bayview
+vilna
 oakville
-prince edward county
 kilbride
-teeswater
-150 mile house
-waldheim
+thessalon
+western shore
 timmins
 north battleford
-denare beach
 herring neck
-rural lamont county
-ste rose du lac
-toronto e01
-toronto e02
-toronto e03
-bruce mines
 terrace
-camrose
-toronto e04
 longlac
-ladysmith
-toronto e06
-toronto e07
 ottawa
-toronto e08
-toronto e09
-ramara
 esterhazy
 bouctouche
-mutrie
-mattawan
-arcola
-mattawa
 algoma mills
-lumby
 strathmore
 espanola
-port alberni
-waterdown
 richibucto road
-lajord rm no. 128
-priddis greens
+haldimand
 drumheller
+bon accord
+rural forty mile no. 8
 noonan
+freelton
 petty harbour maddox cove
-weyburn
 hamilton
+canwood rm no. 494
 kirkland lake
 quesnel
+wawota
 emma lake
 portugal cove st philips
+gray creek
 halifax ns
 mb
-ingram
+copper cliff
 langley
+whitchurch stouffville
 stag harbour
+batchawana bay
 esquimalt
 brighton
 tecumseh
 portugal cove- st. philip's
 prince albert
-squamish
+lac la hache
 portland hills
-big river
 joe batt's
 hanwell
 pemberton
 nb
 norris point
-bracebridge
 orleans
-rural parkland county
-hanover
 whitehorse south
 beaver creek
+meadow lake
 st. anthony
-christina lake
 chapleau
-rural willow creek no. 26
 nl
+no city value
+swift current
+rural minburn no. 27
 courtenay
-eckville
 humboldt
 kindersley
 cornwall
 nashwaaksis
 ns
 nt
-crawford bay
+lyalta
 nanaimo
-shaunavon
+east gwillimbury
 portugal cove-st. phillips
+rocky mountain house
 out of area
 unity
 west kelowna
-matachewan
-redvers
+charlie lake
 edenwold rm no. 158
+benson
 west end
 douglas
+blind river
 orangeville
 st. patricks
 cumberland
 calgary
 on
-oyama
+milverton
 summerland
 whitby
 moose jaw
-tappen
-cobden
 warman
-lakeside
 pe
 mount pearl
 st.johns
-sicamous
-fauxburg
+papineau cameron twp
+chisholm (twp)
+annaheim
+rural foothills county
 spryfield
 delta
-burlington
 north river
 kapuskasing
 mississauga
 burnaby
+penhold
 newmarket
+pasqua lake
 ajax
 fogo island (deep bay)
 dunstaffnage
-kars township
 happy valley goose bay
 high river
-minaki
+dunnville
 long creek
 halifax
 rural wheatland county
+webb rm no. 138
 clayton park
-wetaskiwin
-oak lake
 st. johns
-eagle bay
+new victoria
 fogo island(deep bay)
-rishabh
-st,johns
+la crete
+richmond
+pickering
 jemseg
 logy bay middle cove outer cove
-b say tah
-brooks
 joe batt's arm
 lorette
 lower saint marys
 edmonton
 haines junction
+millet
+brightsand lake
+maddox cove
 mount herbert
 iroquois falls
 mission
 north west river
 conmee
-keremeos
+barnwell
 fogo island
+logy bay middle cove outer cv
 coniston
-canim lake
-crossfield
 portugal cove-st philips
+fernie
 manitouwadge
 toronto
-waterloo
+aylmer
+terrace bay
+ware
+wakaw lake
 whitehorse north
 portugal cove st. philip's
+fogo island(island harbour)
 bonfield
 mermaid
-tisdale
 twillingate
 st clements
-fraser lake
 west vancouver
 sk
 island view
+thompson
 yukon wide
-clayton rm no. 333
+avonlea
 nepean
 logy bay
 st
-smooth rock falls
 fort liard
-grandview beach
-clive
-coppersands
+spallumcheen
+galway cavendish and harvey
+jellicoe
 sarnia
 sault ste marie
 portugal cove
-duck lake rm no. 463
 lincoln
+humboldt rm no. 370
 middle arm
-savary island
-oliver
-prince rupert
+sturgeon falls
 regina
-big white
-estevan
 carter's cove
-pictou
 little ward harbour
 oshawa
 spruce grove
 st. philip's
 marshfield
 lake country
-comox
+lake lenore rm no. 399
 anchor point
 nanoose bay
-revelstoke
+lumsden rm no. 189
 cambridge
-campbell river
 fort mcmurray
 markham
+coquitlam
 marathon
-dysart
+birch hills
 airdrie
 st john's
 red deer
 corman park rm no. 344
+breton
 dauphin
-m.d. of
+duck lake
 whitehorse
 pownal
 surrey
 saskatoon
 fogo island(barrd islands)
 fredericton
-cartier
 east st paul
 thunder bay
 johns
 roddickton bide arm
 medicine hat
 wanup
-williams lake
-batchawana
-capreol
-central elgin
+pierson
+mulhurst bay
+temiksaming shores
 salmon arm
+casa rio
+pinto creek rm no. 75
 rocky harbour
-wahnapitae
 topsail
-douro dummer
 west royalty
 armstrong
-rural grande prairie no. 1
-richmond hill
-sudbury remote area
+spruce home
+rm of reynolds
+hanna
 rattling brook
 prince george
-schreiber
+halton hills
 garson
-longlaketon rm no. 219
+watson
 englee
 st.john's
 portugal cove st. phillips
 milton
-pelham
+desbarats
 fort frances
-innisfail
+pollards point
 king's point south
 new maryland
 cole harbour
 baie verte
-huntsville
+fairbanks
+chilliwack
+alice beach
 rockingham
 okanagan falls
-big river rm no. 555
-bladworth
+archerwill
+ontario
 fogo island (joe batts arm)
-collingwood lakeshore estates
 golden
 olds
 yt
+castor
 oak bay
+etobicoke
 torbay
-ingersoll
 wawa
 westbank
 st. phillips
 wabush
-peace river
 brampton
-horsefly
 sherwood park
 pike's arm
-elliot lake
+sarilia country estates
 kings point
 fogo island(barr's islands)
 grande pointe
 mt. pearl
-sayward
-kingston
 meadowbank
-tiny
-bruno
-carnduff
+yarrow
+caledon
 fogo
-anzac
-rural westlock county
+coaldale
 goose bay
 aurora
-beamsville
 purcell's cove
-st. charles
+enniskillen rm no. 3
 conception bay south
 fairview
 yellowknife
-levack
-osoyoos
-kakabeka falls
+jacques
+furdale
+elk ridge
+east river point
 port saunders
 sops arm
 st. john's
-nipigon
-whitefish
-earlton
 vernon
+north vancouver
 thorold
-pilot butte
-skead
-carman
-rural brazeau county
+greenwood
+canora
+rochon sands
+temiskaming shore
+100 mile house
+simcoe
+creston
+penetanguishene
+port hope
 peterborough
-whistler
+cochenour
+yorkton
 nashwaak
-brandon
+kings head
 sault ste. marie
+smiths falls
 fort saskatchewan
-brooksby
 dryden
-cypress hills provincial park
+brucefield
 woodlawn
-king
+kaministiquia
 portugal cove - st philips
-lloydminster
+torch river rm no. 488
+moose range rm no. 486
+innisfil
 merritt's harbour
-greenstone
-grandora
 deadmans cove
 cochrane
-prince albert rm no. 461
-willingdon
+hudson bay
 miltonvale park
-deep bay
-alameda
+blezard valley
 stratford
 sally's cove
+kaleden
 silverdale
-onaping
 charlottetown
-inkerman
 fort st. john
 kingsley
+neebing
 welland
-qualicum beach
 martensville
 val caron
 saanich
+kitscoty
 southern arm
-ghost lake
 candle lake
 mcleod hill
 saskatchewan
-rouleau
+hunter river
 fogo island(joe batts arm)
-gorham
 sudbury
-grenfell
-alert bay
-parkview
-bellevue
+celista
+abbotsford
 canmore
 cbs
-leduc
-hearst
+york
 parkdale
+delhi
 hazelbrook
