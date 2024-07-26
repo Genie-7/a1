@@ -182,7 +182,7 @@ public class Main {
         System.out.println("6. City Name Autocomplete");
         System.out.println("7. Hunt for properties using keywords");
         System.out.println("8. Search word frequency in a URL");
-        System.out.println("9. Search by property type ");
+        System.out.println("9. Search by property type or keyword");
         System.out.println("10. Exit\033[0m");
         System.out.println("\033[1;34m=============================\033[0m");
     }
