@@ -44,7 +44,7 @@ public class FilterByBedBath {
 
         List<String[]> filteredListings = filterByBedBath(csvFilePath, beds, baths);
 
-        System.out.println("Total listings shown: " + filteredListings.size());
+        System.out.println("Total listings: " + filteredListings.size());
         System.out.println("\033[1;32mFiltered listings:\033[0m");
         for (String[] listing : filteredListings) {
             System.out.println("Price: " + listing[0]);

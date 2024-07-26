@@ -85,13 +85,13 @@ public class Main {
                             remaxWebScraper.scrapeMultipleLocations();
                             zoloWebScraper.scrapeAllLocations();
                             csvMerger.appendZoloToRemax("remax_listings.csv", "zolo_listings.csv");
-                            TorontoDataCleaner.torontoDataCleaner("remax_listings.csv");                            System.out.println("\033[1;32mRemax CSV updated and Zolo listings appended successfully.\033[0m");
+                            TorontoDataCleaner.torontoDataCleaner("remax_listings.csv");
+                            System.out.println("\033[1;32mRemax CSV updated and Zolo listings appended successfully.\033[0m");
                         } catch (Exception e) {
                             System.out.println("\033[1;31mError updating and appending CSV files: " + e.getMessage() + "\033[0m");
                         }
                         user_input = null;
-                    }
-                    else{
+                    } else {
                         break;
                     }
                     break;
@@ -119,11 +119,23 @@ public class Main {
                     }
                     break;
                 case 8:
+                    System.out.print("Enter URL: ");
+                    String url = scanner.nextLine();
+                    System.out.print("Enter word to count: ");
+                    String word = scanner.nextLine();
+                    FrequencyCount.searchWordFrequencyInUrl(url, word);
+                    break;
+                case 9:
+                    System.out.print("Enter word to count in URLs from CSV: ");
+                    String wordToCount = scanner.nextLine();
+                    FrequencyCount.analyzeAndRankUrlsFromCsv(csvFilePath, wordToCount);
+                    break;
+                case 10:
                     System.out.println("\033[1;32mClosing the app. Catch you later, property hunter! \033[0m");
                     scanner.close();
                     return; // Exit the program
                 default:
-                    System.out.println("\033[1;31mInvalid choice. Please enter a number between 1 and 8.\033[0m");
+                    System.out.println("\033[1;31mInvalid choice. Please enter a number between 1 and 10.\033[0m");
                     break;
             }
         }
@@ -164,7 +176,9 @@ public class Main {
         System.out.println("5. Search cozy homes by bedrooms and bathrooms");
         System.out.println("6. City Name Autocomplete");
         System.out.println("7. Hunt for properties using keywords");
-        System.out.println("8. Exit\033[0m");
+        System.out.println("8. Search word frequency in a URL");
+        System.out.println("9. List 10 properties with frequencycount");
+        System.out.println("10. Exit\033[0m");
         System.out.println("\033[1;34m=============================\033[0m");
     }
 

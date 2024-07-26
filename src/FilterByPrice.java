@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.util.regex.*;
 
 public class FilterByPrice {
     public static void filter(Scanner scanner, String csvFilePath, String selectedCityOrProvince) {
@@ -50,7 +49,7 @@ public class FilterByPrice {
 
         List<String[]> filteredListings = filterByPrice(csvFilePath, minPrice, maxPrice, selectedCityOrProvince);
 
-        System.out.println("Total listings shown: " + filteredListings.size());
+        System.out.println("Total listings in your budget: " + filteredListings.size());
         System.out.println("\033[1;32mFiltered listings:\033[0m");
         for (String[] listing : filteredListings) {
             System.out.println("Price: " + listing[0]);
