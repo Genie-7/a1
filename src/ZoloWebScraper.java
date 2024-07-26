@@ -16,6 +16,7 @@ import java.util.*;
 import java.util.NoSuchElementException;
 import java.util.logging.*;
 
+// Zolo web scraper class
 public class ZoloWebScraper {
     private static final Logger logger = Logger.getLogger(ZoloWebScraper.class.getName());
     private static final int WAIT_TIMEOUT = 30; // Increased from 10 to 30 seconds

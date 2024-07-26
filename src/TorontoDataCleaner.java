@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class TorontoDataCleaner {
-
+    // Clean data from Toronto listings - > remove municipality/noeighbourhood code
     public static void torontoDataCleaner(String inputCsvFilePath) {
         List<String[]> allLines;
         try (CSVReader reader = new CSVReader(new FileReader(inputCsvFilePath))) {

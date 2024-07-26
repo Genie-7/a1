@@ -4,6 +4,7 @@ import java.util.*;
 
 public class DictionaryGenerator {
 
+    // Generate Dictionary keywords
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("Usage: java DictionaryGenerator <input_csv_file> <output_dictionary_file>");

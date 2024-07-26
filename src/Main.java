@@ -22,6 +22,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
+        // Constructors
         RemaxWebScraper remaxWebScraper = new RemaxWebScraper();
         ZoloWebScraper zoloWebScraper = new ZoloWebScraper();
         CSVMerger csvMerger = new CSVMerger();
@@ -35,6 +37,7 @@ public class Main {
 
         File csvFile = new File("remax_listings.csv");
 
+        // Data file checking
         if (!csvFile.exists()) {
             System.out.println("CSV file not found");
             remaxWebScraper.scrapeMultipleLocations();
@@ -60,6 +63,7 @@ public class Main {
         // Print the welcome message once
         printWelcomeMessage();
 
+        // Option menu
         while (true) {
             printMenu();
             int choice;
@@ -76,6 +80,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
+                    // Scraper functionality
                     System.out.println("\033[1;31mAre you sure you want to update the CSV Files?\n" +
                             "This is a lengthy process and will take some time ~30 minutes\n" +
                             "Type \"yes\" to continue anything else to go back\033[0m");
@@ -177,7 +182,7 @@ public class Main {
         System.out.println("6. City Name Autocomplete");
         System.out.println("7. Hunt for properties using keywords");
         System.out.println("8. Search word frequency in a URL");
-        System.out.println("9. List 10 properties with frequencycount");
+        System.out.println("9. Search by property type ");
         System.out.println("10. Exit\033[0m");
         System.out.println("\033[1;34m=============================\033[0m");
     }

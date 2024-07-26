@@ -64,6 +64,7 @@ class Trie {
     }
 }
 
+// Spell checker class to give corrected words from user input
 public class SpellChecker {
     private Trie dictionary;
 

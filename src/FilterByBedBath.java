@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// Bed and Bath listing filtering
 public class FilterByBedBath {
     // Updated pattern to handle both "n bed" and "n+1 bed" formats
     private static final Pattern BED_BATH_PATTERN = Pattern.compile("(\\d+\\+?\\d*) bed (\\d+) bath");

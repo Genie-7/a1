@@ -4,7 +4,7 @@ import java.util.*;
 public class CSVConverter {
 
     private static final Map<String, String> PROVINCE_MAP = createProvinceMap();
-
+    // CSV Data cleaning
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("Usage: java CSVConverter <input_csv_file> <output_csv_file>");

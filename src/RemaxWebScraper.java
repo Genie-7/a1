@@ -26,6 +26,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+// Remax web scraper
+
 public class RemaxWebScraper {
 
     private static final Logger logger = Logger.getLogger(RemaxWebScraper.class.getName());

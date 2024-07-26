@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 
+// Filter listings by price
 public class FilterByPrice {
     public static void filter(Scanner scanner, String csvFilePath, String selectedCityOrProvince) {
         double minPrice = 0;

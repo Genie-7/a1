@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.*;
 
 class AVLNode {
+    // Node declaration
     String word;
     int frequency;
     int height;
@@ -20,6 +21,7 @@ class AVLNode {
 }
 
 class AVLTree {
+    // AVL Tree Methods
     private AVLNode root;
 
     private int height(AVLNode N) {
@@ -124,7 +126,7 @@ class AVLTree {
         }
     }
 }
-
+// Suggestions class
 class Autocomplete {
     private AVLTree avlTree;
 
