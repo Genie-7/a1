@@ -221,6 +221,11 @@ public class Main {
         while (true) {
             System.out.print("\033[1;36mEnter the city name (or type 'back' to return to the main menu, 'exit' to quit):\033[0m ");
             String city = scanner.nextLine().trim();
+            // Check if the city name contains any numeric values
+            if (city.matches(".*\\d.*")) {
+                System.out.println("\033[1;31mInvalid input. City name cannot contain numeric values. Please try again.\033[0m");
+                continue;
+            }
             if (city.matches("(?i)back")) {
                 return; // Go back to the main menu
             }

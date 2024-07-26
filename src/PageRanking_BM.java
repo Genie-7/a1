@@ -67,8 +67,12 @@ public class PageRanking_BM {
     }
 
     public void print_TopRankedProperties(int num) {
-        System.out.println("Highest Ranked Properties:");
         int count = 0;
+        if (propertyMaxHeap.isEmpty()){
+            System.out.println("No listings found with the specified keyword(s)");
+            return;
+        }
+        System.out.println("Highest Ranked Properties:");
         while (!propertyMaxHeap.isEmpty() && count < num) {
             Map.Entry<String, Integer> entry = propertyMaxHeap.poll();
             System.out.println("--------------------");
