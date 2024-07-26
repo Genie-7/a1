@@ -299,7 +299,7 @@ public class Main {
                 System.out.println(count++ + ". " + suggestion.split(" \\(")[0]);
             }
 
-            System.out.println("Enter a number (1-5) to select a city, type a new prefix to get new suggestions, or 'back' to return:");
+            System.out.println("Enter a corresponding number to select a city, type a new prefix to get new suggestions, or 'back' to return:");
 
             while (true) {
                 String selection = scanner.nextLine().trim();
