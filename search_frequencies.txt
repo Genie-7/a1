@@ -2,6 +2,7 @@ bc: 2
 east royalty: 1
 toronto: 24
 400000.0-500000.0: 9
+freelton: 1
 quesnel: 1
 lassale: 2
 winnipeg: 23
@@ -11,7 +12,7 @@ kelowna: 1
 island view: 1
 olds: 1
 esquimalt: 4
-yt: 15
+yt: 16
 ottawa: 4
 on: 1
 windsor: 81
@@ -31,4 +32,4 @@ tiny: 1
 4000000.0-5000000.0: 3
 500000.0-600000.0: 1
 lasallle: 1
-nl: 1
+nl: 2

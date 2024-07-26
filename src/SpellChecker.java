@@ -101,7 +101,7 @@ public class SpellChecker {
         while (true) {
             if (suggestions.isEmpty()) {
                 System.out.println("\033[1;31mNo close matches found.\033[0m");
-                System.out.print("\033[1;36mPlease enter the correct word (or type 'menu' to return to the main menu, 'exit' to quit):\033[0m ");
+                System.out.print("\033[1;36mPlease enter the correct city (or type 'menu' to return to the main menu, 'exit' to quit):\033[0m ");
                 input = scanner.nextLine().trim();
                 if (input.equalsIgnoreCase("menu")) {
                     return "None of the above";

@@ -235,6 +235,11 @@ public class Main {
         while (true) {
             System.out.print("\033[1;36mEnter the city name (or type 'back' to return to the main menu, 'exit' to quit):\033[0m ");
             String city = scanner.nextLine().trim();
+            // Check if the city name contains any numeric values
+            if (city.matches(".*\\d.*")) {
+                System.out.println("\033[1;31mInvalid input. City name cannot contain numeric values. Please try again.\033[0m");
+                continue;
+            }
             if (city.matches("(?i)back")) {
                 return; // Go back to the main menu
             }
@@ -294,7 +299,7 @@ public class Main {
                 System.out.println(count++ + ". " + suggestion.split(" \\(")[0]);
             }
 
-            System.out.println("Enter a number (1-5) to select a city, type a new prefix to get new suggestions, or 'back' to return:");
+            System.out.println("Enter a corresponding number to select a city, type a new prefix to get new suggestions, or 'back' to return:");
 
             while (true) {
                 String selection = scanner.nextLine().trim();
